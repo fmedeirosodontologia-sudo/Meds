@@ -514,8 +514,18 @@ a{color:inherit;text-decoration:none;}
 
 /* ---------- CTA grande ---------- */
 .bigcta{
+  position:relative;isolation:isolate;overflow:hidden;
   padding:clamp(74px,10vw,116px) 22px;text-align:center;color:#fff;
-  background:linear-gradient(152deg,var(--red) 0%,var(--red-deep) 62%,#7d2018 100%);
+  background:var(--red-deep);
+}
+.bigcta__bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:50% 42%;z-index:-2;
+}
+.bigcta__scrim{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(152deg,rgba(208,56,43,.9) 0%,rgba(140,32,24,.93) 60%,rgba(96,22,16,.96) 100%);
 }
 .bigcta__inner{max-width:660px;margin:0 auto;}
 .bigcta h2{color:#fff;}
