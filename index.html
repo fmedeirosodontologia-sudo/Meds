@@ -3,280 +3,441 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gracie Barra Itaguaí — Jiu-Jitsu para Todos</title>
-<meta name="description" content="Gracie Barra Itaguaí. Jiu-Jitsu para todas as idades, do infantil à competição. Aula experimental gratuita.">
-<meta name="theme-color" content="#0a0a0a">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<title>Gracie Barra Itaguaí — Jiu-Jitsu &amp; Defesa Pessoal</title>
+<meta name="description" content="Gracie Barra Itaguaí: Jiu-Jitsu e defesa pessoal para crianças, adolescentes e adultos. Sua primeira aula experimental é gratuita — agende pelo WhatsApp.">
+<meta name="theme-color" content="#12151c">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gracie Barra Itaguaí — Jiu-Jitsu &amp; Defesa Pessoal">
+<meta property="og:description" content="Aula experimental gratuita. Turmas para crianças, adolescentes e adultos em Itaguaí, RJ.">
+<meta property="og:image" content="assets/img/fotos/equipe-completa.jpg">
+<meta property="og:locale" content="pt_BR">
+
 <link rel="icon" href="assets/img/icon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/img/icon-512.png" sizes="512x512" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/archivo-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/source-sans-3-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+
+<!--
+  ============================================================
+  ATENÇÃO: o número de WhatsApp abaixo é um PLACEHOLDER inválido.
+  Troque todas as ocorrências de 5500000000000 pelo número real
+  da unidade (formato: 55 + DDD + número, só dígitos).
+  Ex.: (21) 98765-4321  ->  5521987654321
+  ============================================================
+-->
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a class="nav__brand" href="#topo">
-      <span class="nav__mark">GB</span>
-      <span class="nav__name">Gracie Barra <em>Itaguaí</em></span>
+    <a class="nav__brand" href="#topo" aria-label="Gracie Barra Itaguaí — início">
+      <img class="nav__logo" src="assets/img/logo-gb-itaguai-claro.png" alt="" width="40" height="40">
+      <span class="nav__name">Gracie&nbsp;Barra <em>Itaguaí</em></span>
     </a>
-    <nav class="nav__links" id="navLinks">
-      <a href="#sobre">Sobre</a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="#sobre">A escola</a>
       <a href="#metodologia">Metodologia</a>
-      <a href="#aulas">Aulas</a>
+      <a href="#turmas">Turmas</a>
       <a href="#horarios">Horários</a>
       <a href="#galeria">Galeria</a>
-      <a href="#local">Localização</a>
+      <a href="#local">Onde fica</a>
     </nav>
-    <a class="btn btn--pill nav__cta" href="#contato">Aula experimental</a>
+    <a class="btn btn--wa btn--sm nav__cta" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">
+      <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+      Aula grátis
+    </a>
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navSheet">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="nav__sheet" id="navSheet">
-    <a href="#sobre">Sobre</a>
+  <div class="nav__sheet" id="navSheet" hidden>
+    <a href="#sobre">A escola</a>
     <a href="#metodologia">Metodologia</a>
-    <a href="#aulas">Aulas</a>
+    <a href="#turmas">Turmas</a>
     <a href="#horarios">Horários</a>
     <a href="#galeria">Galeria</a>
-    <a href="#local">Localização</a>
-    <a class="btn btn--pill" href="#contato">Aula experimental</a>
+    <a href="#local">Onde fica</a>
+    <a class="btn btn--wa" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">Agendar no WhatsApp</a>
   </div>
 </header>
 
 <main id="conteudo">
 
+  <!-- ============ HERO ============ -->
   <section class="hero" id="topo">
-    <div class="hero__bg" id="heroBg" aria-hidden="true"></div>
-    <div class="hero__vignette" aria-hidden="true"></div>
+    <div class="hero__media">
+      <img class="hero__poster" src="assets/video/hero-treino-poster.jpg" alt="" aria-hidden="true">
+      <video class="hero__video" id="heroVideo"
+             poster="assets/video/hero-treino-poster.jpg"
+             muted loop playsinline preload="none" aria-hidden="true" tabindex="-1">
+        <source src="assets/video/hero-treino.webm" type="video/webm">
+        <source src="assets/video/hero-treino.mp4" type="video/mp4">
+      </video>
+      <div class="hero__scrim" aria-hidden="true"></div>
+    </div>
+
     <div class="hero__content" id="heroContent">
-      <p class="eyebrow">Faixa-Preta Gracie Barra</p>
-      <h1>Jiu-Jitsu<br><span class="text-accent">para todos.</span></h1>
-      <p class="hero__sub">Uma equipe. Uma família. Do primeiro treino à faixa-preta — em Itaguaí.</p>
+      <img class="hero__logo" src="assets/img/logo-gb-itaguai-claro.png"
+           alt="Gracie Barra Itaguaí — Jiu-Jitsu e Defesa Pessoal" width="132" height="132">
+      <h1>Jiu-Jitsu<br>para&nbsp;todos.</h1>
+      <p class="hero__sub">
+        Crianças, adolescentes e adultos treinando juntos em Itaguaí — do primeiro dia no
+        tatame à faixa-preta, com a metodologia Gracie Barra.
+      </p>
+      <p class="hero__badge"><span>Grátis</span> Primeira aula experimental por nossa conta</p>
       <div class="hero__actions">
-        <a href="#contato" class="btn btn--primary">Marcar aula experimental</a>
-        <a href="#sobre" class="btn btn--ghost">Conhecer a escola</a>
+        <a class="btn btn--wa btn--lg" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">
+          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Agendar minha aula grátis
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#turmas">Ver as turmas</a>
       </div>
     </div>
-    <a href="#sobre" class="hero__scroll" aria-label="Rolar para baixo">
-      <span></span>
-    </a>
+
+    <a class="hero__scroll" href="#experimental" aria-label="Rolar para baixo"><span></span></a>
   </section>
 
-  <section class="intro" id="sobre">
-    <div class="intro__grid">
-      <div class="intro__media reveal" data-reveal>
-        <svg class="art" viewBox="0 0 400 500" role="img" aria-label="Ilustração de duas pessoas praticando Jiu-Jitsu">
-          <rect width="400" height="500" rx="28" fill="url(#g1)"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#151515"/>
-              <stop offset="1" stop-color="#050505"/>
-            </linearGradient>
-          </defs>
-          <g stroke="#c8102e" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
-            <path d="M110 330 Q150 250 220 260 Q280 268 300 210"/>
-            <circle cx="118" cy="310" r="22" fill="#c8102e" stroke="none"/>
-            <path d="M118 332 Q140 400 110 440"/>
-            <path d="M118 332 Q90 380 130 430"/>
-            <circle cx="300" cy="192" r="22" fill="#fff" stroke="none"/>
-            <path d="M300 214 Q330 260 380 260"/>
-            <path d="M300 214 Q250 240 240 300"/>
-          </g>
-          <g stroke="#3a3a3a" stroke-width="3" opacity="0.6">
-            <line x1="40" y1="440" x2="360" y2="440"/>
-          </g>
-        </svg>
+  <!-- ============ AULA EXPERIMENTAL ============ -->
+  <section class="trial" id="experimental">
+    <div class="trial__inner">
+      <header class="trial__head reveal" data-reveal>
+        <p class="eyebrow eyebrow--light">Aula experimental</p>
+        <h2>A primeira aula é grátis.<br>E sem compromisso nenhum.</h2>
+        <p class="lead lead--light">
+          Você treina com a turma, conhece os professores e sente como é o tatame por dentro.
+          Só depois disso a gente conversa sobre plano — se você quiser.
+        </p>
+      </header>
+
+      <ol class="steps">
+        <li class="step reveal" data-reveal>
+          <span class="step__n">1</span>
+          <h3>Chame no WhatsApp</h3>
+          <p>Diga a idade do aluno e o melhor dia. A gente confirma o horário da turma certa para você.</p>
+        </li>
+        <li class="step reveal" data-reveal>
+          <span class="step__n">2</span>
+          <h3>Chegue 15 minutos antes</h3>
+          <p>Dá tempo de conhecer a academia, falar com o professor e tirar as dúvidas antes de entrar no tatame.</p>
+        </li>
+        <li class="step reveal" data-reveal>
+          <span class="step__n">3</span>
+          <h3>Treine com a turma</h3>
+          <p>Aula completa, do aquecimento à técnica do dia. Sem taxa, sem matrícula, sem pressa.</p>
+        </li>
+      </ol>
+
+      <div class="trial__cta reveal" data-reveal>
+        <a class="btn btn--wa btn--lg" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">
+          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Quero minha aula experimental
+        </a>
+        <p class="trial__note">Dúvida sobre kimono, idade ou horário? Pergunte por lá — respondemos rapidinho.</p>
       </div>
-      <div class="intro__text reveal" data-reveal>
-        <p class="eyebrow">Nossa filosofia</p>
-        <h2>Mais que uma arte marcial.<br>Um caminho.</h2>
-        <p class="lead">Na Gracie Barra Itaguaí, ensinamos o Jiu-Jitsu como a família Gracie sempre ensinou: com técnica, respeito e evolução constante — dentro e fora do tatame.</p>
-        <p>Aqui, iniciantes encontram acolhimento e competidores encontram exigência. Crianças ganham disciplina, adultos ganham confiança. Todo mundo ganha uma segunda família.</p>
-        <ul class="stat-row">
-          <li><strong>+30</strong><span>anos de tradição Gracie Barra</span></li>
-          <li><strong>Todas</strong><span>as idades e níveis</span></li>
-          <li><strong>1ª aula</strong><span>gratuita, sem compromisso</span></li>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE ============ -->
+  <section class="about" id="sobre">
+    <div class="about__grid">
+      <figure class="about__media reveal" data-reveal>
+        <img src="assets/img/fotos/professor-aluno.jpg"
+             srcset="assets/img/fotos/professor-aluno@800.jpg 800w, assets/img/fotos/professor-aluno.jpg 1600w"
+             sizes="(max-width: 860px) 92vw, 46vw"
+             alt="Professor faixa-preta conversando e sorrindo com um aluno antes do treino"
+             width="1600" height="2844" loading="lazy" decoding="async">
+      </figure>
+      <div class="about__text reveal" data-reveal>
+        <p class="eyebrow">A escola</p>
+        <h2>Um tatame que recebe bem quem nunca treinou.</h2>
+        <p class="lead">
+          A Gracie Barra Itaguaí é uma escola oficial da maior equipe de Jiu-Jitsu do mundo,
+          fundada pelo mestre Carlos Gracie Jr. Aqui se ensina a arte do jeito que ela deve
+          ser ensinada: com técnica, respeito e paciência com quem está começando.
+        </p>
+        <p>
+          Quem chega sem nunca ter pisado num tatame encontra uma turma que ajuda em vez de
+          intimidar. Quem já treina encontra exigência e evolução. E as duas coisas acontecem
+          na mesma sala, no mesmo horário — é isso que faz uma equipe.
+        </p>
+        <ul class="facts">
+          <li><strong>4&nbsp;anos</strong><span>é a idade mínima para começar</span></li>
+          <li><strong>Kids &amp; adultos</strong><span>turmas separadas por idade e nível</span></li>
+          <li><strong>Defesa pessoal</strong><span>presente em todas as faixas</span></li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- ============ METODOLOGIA (crossfade no scroll) ============ -->
   <section class="story" id="metodologia">
     <div class="story__intro reveal" data-reveal>
-      <p class="eyebrow">Metodologia Gracie Barra</p>
-      <h2>Uma curva de evolução<br>pensada para cada faixa.</h2>
+      <p class="eyebrow eyebrow--light">Metodologia Gracie Barra</p>
+      <h2>Uma progressão pensada<br>para cada faixa.</h2>
+      <p class="lead lead--light">
+        O programa Gracie Barra é o mesmo em qualquer escola da equipe no mundo. Você sempre
+        sabe onde está e o que vem pela frente.
+      </p>
     </div>
+
     <div class="story__inner">
       <div class="story__sticky">
-        <div class="story__media" id="storyMedia">
-          <div class="story__frame is-active" data-frame="0">
-            <svg viewBox="0 0 500 500"><rect width="500" height="500" fill="#0a0a0a"/><circle cx="250" cy="200" r="90" fill="none" stroke="#c8102e" stroke-width="6"/><rect x="150" y="330" width="200" height="26" rx="13" fill="#fff"/></svg>
-          </div>
-          <div class="story__frame" data-frame="1">
-            <svg viewBox="0 0 500 500"><rect width="500" height="500" fill="#0a0a0a"/><rect x="150" y="330" width="200" height="26" rx="13" fill="#c8102e"/><path d="M130 240 L250 150 L370 240" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="story__frame" data-frame="2">
-            <svg viewBox="0 0 500 500"><rect width="500" height="500" fill="#0a0a0a"/><rect x="150" y="330" width="200" height="26" rx="13" fill="#7a7a7a"/><path d="M170 180 L330 320 M330 180 L170 320" stroke="#c8102e" stroke-width="8" stroke-linecap="round"/></svg>
-          </div>
-          <div class="story__frame" data-frame="3">
-            <svg viewBox="0 0 500 500"><rect width="500" height="500" fill="#0a0a0a"/><rect x="150" y="330" width="200" height="26" rx="13" fill="#000" stroke="#c8102e" stroke-width="3"/><path d="M250 130 L300 260 L180 190 L320 190 L200 260 Z" fill="#c8102e"/></svg>
-          </div>
+        <div class="story__media">
+          <figure class="story__frame is-active" data-frame="0">
+            <img src="assets/img/fotos/turma-adulto-02@800.jpg" alt="Turma de faixas brancas adultas reunida no tatame" loading="lazy" decoding="async">
+          </figure>
+          <figure class="story__frame" data-frame="1">
+            <img src="assets/img/fotos/faixas-coloridas@800.jpg" alt="Alunos com faixas coloridas em pé lado a lado no tatame" loading="lazy" decoding="async">
+          </figure>
+          <figure class="story__frame" data-frame="2">
+            <img src="assets/img/fotos/turma-mista@800.jpg" alt="Turma avançada reunida após o treino" loading="lazy" decoding="async">
+          </figure>
+          <figure class="story__frame" data-frame="3">
+            <img src="assets/img/fotos/equipe-completa@800.jpg" alt="Equipe completa da Gracie Barra Itaguaí reunida no tatame" loading="lazy" decoding="async">
+          </figure>
         </div>
       </div>
+
       <div class="story__steps">
         <article class="story__step is-active" data-step="0">
-          <span class="story__kicker">Faixa Branca</span>
-          <h3>Fundamentos que sustentam tudo</h3>
-          <p>Postura, quedas seguras, guarda e as primeiras finalizações. O foco é construir uma base sólida — técnica antes de força.</p>
+          <span class="story__kicker">Faixa branca</span>
+          <h3>Os fundamentos que sustentam tudo</h3>
+          <p>Postura, quedas seguras, guarda e as primeiras finalizações. Nada de queimar etapa: primeiro a base, depois a velocidade.</p>
         </article>
         <article class="story__step" data-step="1">
-          <span class="story__kicker">Faixa Azul / Roxa</span>
-          <h3>Repertório e inteligência de jogo</h3>
-          <p>O aluno começa a conectar posições, a antecipar o oponente e a desenvolver seu próprio estilo dentro do sistema Gracie Barra.</p>
+          <span class="story__kicker">Faixa azul e roxa</span>
+          <h3>Repertório e leitura de jogo</h3>
+          <p>O aluno passa a conectar posições, antecipar o parceiro e construir o próprio estilo dentro do sistema da equipe.</p>
         </article>
         <article class="story__step" data-step="2">
-          <span class="story__kicker">Faixa Marrom</span>
+          <span class="story__kicker">Faixa marrom</span>
           <h3>Refinamento e liderança</h3>
-          <p>Detalhes finos, timing e a responsabilidade de ajudar quem está começando — o tatame também ensina a liderar.</p>
+          <p>Detalhe fino, timing e a responsabilidade de puxar quem está começando. No tatame, ensinar também é treinar.</p>
         </article>
         <article class="story__step" data-step="3">
-          <span class="story__kicker">Faixa Preta</span>
-          <h3>Domínio é o começo, não o fim</h3>
-          <p>A faixa preta na Gracie Barra é um novo ponto de partida: aprofundar, competir, ensinar e representar a arte com honra.</p>
+          <span class="story__kicker">Faixa preta</span>
+          <h3>O começo, não o fim</h3>
+          <p>Na Gracie Barra, a faixa-preta é um novo ponto de partida: aprofundar, competir, ensinar e representar a equipe com honra.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="programs" id="aulas">
+  <!-- ============ TURMAS ============ -->
+  <section class="programs" id="turmas">
     <div class="section-head reveal" data-reveal>
-      <p class="eyebrow">Modalidades</p>
-      <h2>Uma turma para cada momento da sua vida.</h2>
+      <p class="eyebrow">Turmas</p>
+      <h2>Uma turma para cada fase da vida.</h2>
+      <p class="lead">Todas elas abrem com uma aula experimental gratuita.</p>
     </div>
+
     <div class="programs__grid">
-      <article class="card reveal" data-reveal>
-        <div class="card__icon">
-          <svg viewBox="0 0 48 48"><circle cx="24" cy="14" r="7" fill="none" stroke="#c8102e" stroke-width="3"/><path d="M10 40c2-10 8-15 14-15s12 5 14 15" fill="none" stroke="#c8102e" stroke-width="3" stroke-linecap="round"/></svg>
+      <article class="prog reveal" data-reveal>
+        <div class="prog__img">
+          <img src="assets/img/fotos/kids-pequenos@800.jpg" srcset="assets/img/fotos/kids-pequenos@400.jpg 400w, assets/img/fotos/kids-pequenos@800.jpg 800w" sizes="(max-width: 900px) 92vw, 32vw" alt="Professores com os alunos mais novos no tatame" loading="lazy" decoding="async">
         </div>
-        <h3>Kids (4–13 anos)</h3>
-        <p>Disciplina, foco e autoconfiança através de aulas lúdicas, adaptadas para cada faixa etária.</p>
+        <div class="prog__body">
+          <span class="prog__age">a partir dos 4 anos</span>
+          <h3>Little Champions</h3>
+          <p>Coordenação, disciplina e as primeiras posições em formato de brincadeira. A porta de entrada dos pequenos.</p>
+        </div>
       </article>
-      <article class="card reveal" data-reveal>
-        <div class="card__icon">
-          <svg viewBox="0 0 48 48"><path d="M8 34 L24 10 L40 34 Z" fill="none" stroke="#c8102e" stroke-width="3" stroke-linejoin="round"/></svg>
+
+      <article class="prog reveal" data-reveal>
+        <div class="prog__img">
+          <img src="assets/img/fotos/turma-kids-01@800.jpg" srcset="assets/img/fotos/turma-kids-01@400.jpg 400w, assets/img/fotos/turma-kids-01@800.jpg 800w" sizes="(max-width: 900px) 92vw, 32vw" alt="Turma kids da Gracie Barra Itaguaí reunida" loading="lazy" decoding="async">
         </div>
-        <h3>Adulto — Fundamentos</h3>
-        <p>Ideal para quem está começando: fundamentos técnicos do Jiu-Jitsu em ambiente acolhedor.</p>
+        <div class="prog__body">
+          <span class="prog__age">crianças</span>
+          <h3>Kids</h3>
+          <p>Técnica de verdade, adaptada à idade. É onde a criança ganha foco, confiança e aprende a se defender.</p>
+        </div>
       </article>
-      <article class="card reveal" data-reveal>
-        <div class="card__icon">
-          <svg viewBox="0 0 48 48"><rect x="9" y="9" width="30" height="30" rx="6" fill="none" stroke="#c8102e" stroke-width="3"/></svg>
+
+      <article class="prog reveal" data-reveal>
+        <div class="prog__img">
+          <img src="assets/img/fotos/turma-teens@800.jpg" srcset="assets/img/fotos/turma-teens@400.jpg 400w, assets/img/fotos/turma-teens@800.jpg 800w" sizes="(max-width: 900px) 92vw, 32vw" alt="Turma de adolescentes reunida no tatame" loading="lazy" decoding="async">
         </div>
-        <h3>Adulto — Avançado</h3>
-        <p>Refinamento técnico, sparring de alta intensidade e preparação para faixas superiores.</p>
+        <div class="prog__body">
+          <span class="prog__age">adolescentes</span>
+          <h3>Teens</h3>
+          <p>A ponte entre o infantil e o adulto: mais intensidade, mais responsabilidade e o começo do jogo próprio.</p>
+        </div>
       </article>
-      <article class="card reveal" data-reveal>
-        <div class="card__icon">
-          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15" fill="none" stroke="#c8102e" stroke-width="3"/><path d="M24 24 L24 12" stroke="#c8102e" stroke-width="3" stroke-linecap="round"/></svg>
+
+      <article class="prog reveal" data-reveal>
+        <div class="prog__img">
+          <img src="assets/img/fotos/turma-gb1@800.jpg" srcset="assets/img/fotos/turma-gb1@400.jpg 400w, assets/img/fotos/turma-gb1@800.jpg 800w" sizes="(max-width: 900px) 92vw, 32vw" alt="Turma do currículo GB1 reunida no tatame" loading="lazy" decoding="async">
         </div>
-        <h3>No-Gi</h3>
-        <p>Jiu-Jitsu sem kimono, com foco em transições rápidas e leg locks — ritmo mais dinâmico.</p>
+        <div class="prog__body">
+          <span class="prog__age">adulto · iniciante</span>
+          <h3>GB1 — Fundamentos</h3>
+          <p>O currículo de entrada do adulto. Se você nunca treinou, é exatamente aqui que você começa.</p>
+        </div>
       </article>
-      <article class="card reveal" data-reveal>
-        <div class="card__icon">
-          <svg viewBox="0 0 48 48"><path d="M24 8 L29 20 L42 20 L31 28 L35 40 L24 32 L13 40 L17 28 L6 20 L19 20 Z" fill="none" stroke="#c8102e" stroke-width="2.5" stroke-linejoin="round"/></svg>
+
+      <article class="prog reveal" data-reveal>
+        <div class="prog__img">
+          <img src="assets/img/fotos/turma-adulto-07@800.jpg" srcset="assets/img/fotos/turma-adulto-07@400.jpg 400w, assets/img/fotos/turma-adulto-07@800.jpg 800w" sizes="(max-width: 900px) 92vw, 32vw" alt="Turma avançada de adultos reunida no tatame" loading="lazy" decoding="async">
         </div>
-        <h3>Turma de Competição</h3>
-        <p>Treino direcionado para atletas que competem — estratégia, condicionamento e simulação de luta.</p>
+        <div class="prog__body">
+          <span class="prog__age">adulto · avançado</span>
+          <h3>GB2 — Avançado</h3>
+          <p>Para quem já tem base: sequências longas, sparring de ritmo alto e preparação para as próximas faixas.</p>
+        </div>
       </article>
-      <article class="card reveal" data-reveal>
-        <div class="card__icon">
-          <svg viewBox="0 0 48 48"><path d="M24 10c-8 0-14 6-14 14 0 10 14 16 14 16s14-6 14-16c0-8-6-14-14-14z" fill="none" stroke="#c8102e" stroke-width="3" stroke-linejoin="round"/></svg>
+
+      <article class="prog reveal" data-reveal>
+        <div class="prog__img">
+          <img src="assets/img/fotos/turma-adulto-03@800.jpg" srcset="assets/img/fotos/turma-adulto-03@400.jpg 400w, assets/img/fotos/turma-adulto-03@800.jpg 800w" sizes="(max-width: 900px) 92vw, 32vw" alt="Alunos adultos reunidos no tatame da academia" loading="lazy" decoding="async">
         </div>
-        <h3>Feminino</h3>
-        <p>Turma exclusiva para mulheres, focada em autodefesa, condicionamento e comunidade.</p>
+        <div class="prog__body">
+          <span class="prog__age">todas as idades</span>
+          <h3>Defesa pessoal</h3>
+          <p>O outro nome que está na nossa logo. Situações reais, saídas de agarramento e a calma para resolver de pé ou no chão.</p>
+        </div>
       </article>
     </div>
   </section>
 
+  <!-- ============ VALORES (banda do tatame) ============ -->
   <section class="values">
-    <div class="values__grid">
-      <div class="value reveal" data-reveal><h3>Comunidade</h3><p>Um tatame é uma família. Aqui todo mundo treina, aprende e evolui junto.</p></div>
-      <div class="value reveal" data-reveal><h3>Respeito</h3><p>Pela arte, pelos professores, pelos colegas de treino — do branco ao preto.</p></div>
-      <div class="value reveal" data-reveal><h3>Disciplina</h3><p>Constância no tatame se transforma em constância na vida.</p></div>
-      <div class="value reveal" data-reveal><h3>Superação</h3><p>Cada treino é uma chance de ser um pouco melhor do que ontem.</p></div>
+    <div class="values__inner">
+      <div class="value reveal" data-reveal>
+        <h3>Irmandade</h3>
+        <p>Ninguém evolui sozinho. O parceiro de treino é quem faz você melhorar.</p>
+      </div>
+      <div class="value reveal" data-reveal>
+        <h3>Integridade</h3>
+        <p>Respeito pelo professor, pelo colega e pela arte — da faixa branca à preta.</p>
+      </div>
+      <div class="value reveal" data-reveal>
+        <h3>Desenvolvimento</h3>
+        <p>Cada treino é um passo. A constância vale mais do que o talento.</p>
+      </div>
     </div>
   </section>
 
+  <!-- ============ GALERIA ============ -->
   <section class="gallery" id="galeria">
     <div class="section-head reveal" data-reveal>
       <p class="eyebrow">Galeria</p>
-      <h2>Momentos do tatame.</h2>
+      <h2>A nossa turma.</h2>
+      <p class="lead">Arraste para o lado.</p>
     </div>
-    <div class="gallery__track" id="galleryTrack">
-      <figure class="gallery__item">
-        <svg viewBox="0 0 400 500"><rect width="400" height="500" fill="#101010"/><path d="M60 380 Q200 260 340 380" stroke="#c8102e" stroke-width="5" fill="none"/><circle cx="130" cy="330" r="26" fill="#fff"/><circle cx="290" cy="330" r="26" fill="#c8102e"/></svg>
-        <figcaption>Treino de faixas</figcaption>
+
+    <div class="gallery__track" id="galleryTrack" tabindex="0" aria-label="Galeria de fotos, role horizontalmente">
+      <figure class="shot">
+        <img src="assets/img/fotos/equipe-completa@800.jpg" alt="Equipe completa reunida em frente ao painel da Gracie Barra" loading="lazy" decoding="async">
+        <figcaption>Equipe completa</figcaption>
       </figure>
-      <figure class="gallery__item">
-        <svg viewBox="0 0 400 500"><rect width="400" height="500" fill="#0d0d0d"/><rect x="120" y="150" width="160" height="30" rx="15" fill="#c8102e"/><rect x="120" y="200" width="160" height="30" rx="15" fill="#fff"/><rect x="120" y="250" width="160" height="30" rx="15" fill="#7a7a7a"/></svg>
-        <figcaption>Cerimônia de graduação</figcaption>
+      <figure class="shot">
+        <img src="assets/img/fotos/kids-ombros@800.jpg" alt="Professores com crianças nos ombros no tatame" loading="lazy" decoding="async">
+        <figcaption>Turma dos pequenos</figcaption>
       </figure>
-      <figure class="gallery__item">
-        <svg viewBox="0 0 400 500"><rect width="400" height="500" fill="#101010"/><path d="M80 150 L200 380 L320 150" stroke="#c8102e" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <figcaption>Turma Kids</figcaption>
+      <figure class="shot">
+        <img src="assets/img/fotos/turma-adulto-01@800.jpg" alt="Turma de adultos posando após o treino" loading="lazy" decoding="async">
+        <figcaption>Treino de adultos</figcaption>
       </figure>
-      <figure class="gallery__item">
-        <svg viewBox="0 0 400 500"><rect width="400" height="500" fill="#0d0d0d"/><circle cx="200" cy="230" r="110" fill="none" stroke="#c8102e" stroke-width="6"/><circle cx="200" cy="230" r="60" fill="none" stroke="#fff" stroke-width="4"/></svg>
-        <figcaption>Competição</figcaption>
+      <figure class="shot">
+        <img src="assets/img/fotos/kids-rosa@800.jpg" alt="Professor com alunas dos kimonos rosa" loading="lazy" decoding="async">
+        <figcaption>Little Champions</figcaption>
       </figure>
-      <figure class="gallery__item">
-        <svg viewBox="0 0 400 500"><rect width="400" height="500" fill="#101010"/><path d="M100 400 L200 120 L300 400 Z" fill="none" stroke="#c8102e" stroke-width="6" stroke-linejoin="round"/></svg>
-        <figcaption>Equipe de competição</figcaption>
+      <figure class="shot">
+        <img src="assets/img/fotos/turma-kids-02@800.jpg" alt="Turma kids reunida com o professor" loading="lazy" decoding="async">
+        <figcaption>Turma kids</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/fotos/faixas-coloridas@800.jpg" alt="Alunos de faixas coloridas em pé no tatame" loading="lazy" decoding="async">
+        <figcaption>Graduações</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/fotos/turma-adulto-06@800.jpg" alt="Turma de adultos sentada no tatame azul" loading="lazy" decoding="async">
+        <figcaption>Turma da noite</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/fotos/kids-familia@800.jpg" alt="Professores e crianças reunidos no tatame" loading="lazy" decoding="async">
+        <figcaption>Família GB Itaguaí</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/fotos/turma-kids-04@800.jpg" alt="Alunos de várias idades reunidos com o professor" loading="lazy" decoding="async">
+        <figcaption>Todas as idades</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/fotos/tatame-amplo@800.jpg" alt="Vista ampla do tatame da academia com a turma ao fundo" loading="lazy" decoding="async">
+        <figcaption>Nosso tatame</figcaption>
       </figure>
     </div>
   </section>
 
+  <!-- ============ HORÁRIOS ============ -->
   <section class="schedule" id="horarios">
     <div class="section-head reveal" data-reveal>
-      <p class="eyebrow">Grade horária</p>
+      <p class="eyebrow">Horários</p>
       <h2>Encontre o seu horário.</h2>
-      <p class="lead">Horários de exemplo — confirme a grade atual com a unidade antes de vir treinar.</p>
+      <p class="lead">
+        Sua aula experimental pode ser em qualquer um destes horários — confirme pelo WhatsApp
+        antes de vir, para a gente te esperar na turma certa.
+      </p>
     </div>
+
     <div class="schedule__wrap reveal" data-reveal>
       <table class="schedule__table">
+        <caption class="sr-only">Grade de horários por turma e dia da semana</caption>
         <thead>
-          <tr><th>Horário</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th></tr>
+          <tr><th scope="col">Horário</th><th scope="col">Seg</th><th scope="col">Ter</th><th scope="col">Qua</th><th scope="col">Qui</th><th scope="col">Sex</th><th scope="col">Sáb</th></tr>
         </thead>
         <tbody>
-          <tr><td>07:00</td><td>Adulto</td><td>—</td><td>Adulto</td><td>—</td><td>Adulto</td><td>—</td></tr>
-          <tr><td>17:30</td><td>Kids</td><td>Kids</td><td>Kids</td><td>Kids</td><td>Kids</td><td>—</td></tr>
-          <tr><td>19:00</td><td>Fundamentos</td><td>No-Gi</td><td>Fundamentos</td><td>No-Gi</td><td>Fundamentos</td><td>Open Mat</td></tr>
-          <tr><td>20:15</td><td>Avançado</td><td>Competição</td><td>Avançado</td><td>Competição</td><td>Avançado</td><td>—</td></tr>
+          <tr><th scope="row">07:00</th><td>Adulto</td><td>—</td><td>Adulto</td><td>—</td><td>Adulto</td><td>—</td></tr>
+          <tr><th scope="row">12:00</th><td>GB1</td><td>GB1</td><td>GB1</td><td>GB1</td><td>GB1</td><td>—</td></tr>
+          <tr><th scope="row">17:00</th><td>Kids 4–6</td><td>Kids 7–11</td><td>Kids 4–6</td><td>Kids 7–11</td><td>Kids 4–6</td><td>—</td></tr>
+          <tr><th scope="row">18:00</th><td>Kids 7–11</td><td>Teens</td><td>Kids 7–11</td><td>Teens</td><td>Kids 7–11</td><td>—</td></tr>
+          <tr><th scope="row">19:00</th><td>GB1</td><td>GB1</td><td>GB1</td><td>GB1</td><td>GB1</td><td>Open mat</td></tr>
+          <tr><th scope="row">20:15</th><td>GB2</td><td>GB2</td><td>GB2</td><td>GB2</td><td>GB2</td><td>—</td></tr>
         </tbody>
       </table>
     </div>
+    <p class="schedule__hint" aria-hidden="true">Arraste a tabela para ver os outros dias →</p>
+    <p class="schedule__disclaimer reveal" data-reveal>
+      <strong>Kids 4–6</strong> = Little Champions · <strong>GB1</strong> = fundamentos do adulto ·
+      <strong>GB2</strong> = avançado. Grade sujeita a alteração: confirme pelo WhatsApp antes de vir.
+    </p>
   </section>
 
-  <section class="cta">
-    <div class="cta__inner reveal" data-reveal>
-      <h2>Sua primeira aula é por nossa conta.</h2>
-      <p>Venha sentir o tatame da Gracie Barra Itaguaí. Sem compromisso, sem pressa — só Jiu-Jitsu.</p>
-      <a href="#contato" class="btn btn--primary">Quero minha aula experimental</a>
+  <!-- ============ CTA GRANDE ============ -->
+  <section class="bigcta">
+    <div class="bigcta__inner reveal" data-reveal>
+      <p class="eyebrow eyebrow--light">Sem custo, sem compromisso</p>
+      <h2>Venha sentir o tatame<br>antes de decidir.</h2>
+      <p>Marque sua aula experimental gratuita agora — leva menos de um minuto pelo WhatsApp.</p>
+      <a class="btn btn--wa btn--lg" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">
+        <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
     </div>
   </section>
 
-  <section class="location" id="local">
-    <div class="location__grid">
-      <div class="location__info reveal" data-reveal>
-        <p class="eyebrow">Onde treinar</p>
+  <!-- ============ LOCALIZAÇÃO ============ -->
+  <section class="place" id="local">
+    <div class="place__grid">
+      <div class="place__info reveal" data-reveal>
+        <p class="eyebrow">Onde fica</p>
         <h2>Gracie Barra<br>Itaguaí</h2>
-        <ul class="info-list">
+        <ul class="info">
           <li>
             <strong>Endereço</strong>
-            <span>Itaguaí, RJ <em>(confirme o endereço completo com a unidade)</em></span>
+            <span>Itaguaí, RJ <em>— confirme o endereço completo com a unidade</em></span>
+          </li>
+          <li>
+            <strong>WhatsApp</strong>
+            <span><a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">Falar agora</a></span>
           </li>
           <li>
             <strong>Instagram</strong>
@@ -284,53 +445,79 @@
           </li>
           <li>
             <strong>Facebook</strong>
-            <span><a href="https://www.facebook.com/316278312395892" target="_blank" rel="noopener">Gracie Barra Centro – Itaguaí</a></span>
+            <span><a href="https://www.facebook.com/316278312395892" target="_blank" rel="noopener">Gracie Barra Centro — Itaguaí</a></span>
           </li>
         </ul>
       </div>
-      <div class="location__map reveal" data-reveal>
+      <div class="place__map reveal" data-reveal>
         <iframe
-          title="Mapa - Gracie Barra Itaguaí"
+          title="Mapa — Gracie Barra Itaguaí"
           src="https://www.google.com/maps?q=Gracie+Barra+Itagua%C3%AD&output=embed"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
+  <!-- ============ FORMULÁRIO -> WHATSAPP ============ -->
   <section class="contact" id="contato">
     <div class="contact__inner reveal" data-reveal>
-      <p class="eyebrow">Fale com a gente</p>
+      <p class="eyebrow">Agende em 30 segundos</p>
       <h2>Vamos marcar seu primeiro treino?</h2>
-      <p class="lead">Preencha seus dados e a equipe da Gracie Barra Itaguaí entra em contato para agendar sua aula experimental gratuita.</p>
-      <form class="form" id="contactForm">
+      <p class="lead">
+        Preencha os campos e o botão abre o WhatsApp com a mensagem já pronta — é só apertar enviar.
+      </p>
+
+      <form class="form" id="waForm" novalidate>
         <div class="form__row">
           <label>
-            <span>Nome</span>
-            <input type="text" name="nome" required autocomplete="name">
+            <span>Seu nome</span>
+            <input type="text" name="nome" id="fNome" required autocomplete="name" placeholder="Como podemos te chamar">
           </label>
           <label>
-            <span>WhatsApp</span>
-            <input type="tel" name="telefone" required autocomplete="tel" placeholder="(21) 90000-0000">
+            <span>Quem vai treinar</span>
+            <select name="quem" id="fQuem">
+              <option value="eu mesmo(a)">Eu mesmo(a)</option>
+              <option value="meu filho / minha filha">Meu filho ou filha</option>
+              <option value="outra pessoa">Outra pessoa</option>
+            </select>
           </label>
         </div>
+
+        <div class="form__row">
+          <label>
+            <span>Turma de interesse</span>
+            <select name="turma" id="fTurma">
+              <option>Little Champions (a partir dos 4 anos)</option>
+              <option>Kids</option>
+              <option>Teens</option>
+              <option selected>GB1 — Fundamentos (adulto iniciante)</option>
+              <option>GB2 — Avançado</option>
+              <option>Defesa pessoal</option>
+              <option>Ainda não sei — quero orientação</option>
+            </select>
+          </label>
+          <label>
+            <span>Melhor período</span>
+            <select name="periodo" id="fPeriodo">
+              <option>Manhã</option>
+              <option>Meio-dia</option>
+              <option selected>Fim da tarde</option>
+              <option>Noite</option>
+              <option>Sábado</option>
+            </select>
+          </label>
+        </div>
+
         <label>
-          <span>Modalidade de interesse</span>
-          <select name="modalidade">
-            <option>Kids</option>
-            <option>Adulto — Fundamentos</option>
-            <option>Adulto — Avançado</option>
-            <option>No-Gi</option>
-            <option>Competição</option>
-            <option>Feminino</option>
-          </select>
+          <span>Quer contar mais alguma coisa? <i>(opcional)</i></span>
+          <textarea name="obs" id="fObs" rows="3" placeholder="Ex.: nunca treinei, tenho uma lesão no joelho, quero levar meu filho junto…"></textarea>
         </label>
-        <label>
-          <span>Mensagem (opcional)</span>
-          <textarea name="mensagem" rows="3" placeholder="Conte um pouco sobre você"></textarea>
-        </label>
-        <button type="submit" class="btn btn--primary btn--full">Enviar e agendar</button>
+
+        <button type="submit" class="btn btn--wa btn--lg btn--full">
+          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Abrir WhatsApp com minha mensagem
+        </button>
         <p class="form__note" id="formNote" role="status"></p>
       </form>
     </div>
@@ -340,14 +527,22 @@
 
 <footer class="footer">
   <div class="footer__inner">
-    <div class="footer__brand">
-      <span class="nav__mark">GB</span>
-      <span>Gracie Barra Itaguaí</span>
-    </div>
-    <p>Jiu-Jitsu para todos. Itaguaí, RJ.</p>
-    <p class="footer__legal">© <span id="year"></span> Gracie Barra Itaguaí. Site desenvolvido de forma independente — dados de contato de exemplo, a confirmar com a unidade.</p>
+    <img class="footer__logo" src="assets/img/logo-gb-itaguai-claro.png" alt="" width="72" height="72" loading="lazy">
+    <p class="footer__tag">Jiu-Jitsu &amp; Defesa Pessoal · Itaguaí, RJ</p>
+    <nav class="footer__links" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/graciebarra.itaguai/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/316278312395892" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+    <p class="footer__legal">© <span id="year"></span> Gracie Barra Itaguaí. Gracie Barra e o logotipo são marcas de seus respectivos titulares.</p>
   </div>
 </footer>
+
+<!-- barra fixa de conversão (mobile) -->
+<a class="wabar" id="waBar" href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20gratuita%20na%20Gracie%20Barra%20Itagua%C3%AD." target="_blank" rel="noopener">
+  <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+  <span><strong>Aula experimental grátis</strong> Agende pelo WhatsApp</span>
+</a>
 
 <script src="assets/js/main.js"></script>
 </body>

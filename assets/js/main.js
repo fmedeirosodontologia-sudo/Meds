@@ -1,143 +1,226 @@
+/* Gracie Barra Itaguaí — interações do site */
 (() => {
   'use strict';
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $  = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-  /* ---------- Footer year ---------- */
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  /* ---------- ano no rodapé ---------- */
+  const ano = $('#year');
+  if (ano) ano.textContent = new Date().getFullYear();
 
-  /* ---------- Nav: blur on scroll ---------- */
-  const nav = document.getElementById('nav');
-  const onNavScroll = () => {
-    if (!nav) return;
-    nav.classList.toggle('is-scrolled', window.scrollY > 20);
-  };
-  onNavScroll();
-  window.addEventListener('scroll', onNavScroll, { passive: true });
+  /* ---------- navegação ---------- */
+  const nav = $('#nav');
+  const marcarNav = () => nav && nav.classList.toggle('is-solid', window.scrollY > 24);
+  marcarNav();
+  window.addEventListener('scroll', marcarNav, { passive: true });
 
-  /* ---------- Mobile nav toggle ---------- */
-  const navToggle = document.getElementById('navToggle');
-  const navSheet = document.getElementById('navSheet');
-  if (navToggle && navSheet) {
-    const closeSheet = () => {
-      navSheet.classList.remove('is-open');
-      navToggle.setAttribute('aria-expanded', 'false');
+  const toggle = $('#navToggle');
+  const sheet = $('#navSheet');
+  if (toggle && sheet) {
+    const fechar = () => {
+      sheet.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      setTimeout(() => { if (!sheet.classList.contains('is-open')) sheet.hidden = true; }, 300);
     };
-    navToggle.addEventListener('click', () => {
-      const open = navSheet.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', String(open));
+    toggle.addEventListener('click', () => {
+      const abrindo = sheet.hidden || !sheet.classList.contains('is-open');
+      if (abrindo) {
+        sheet.hidden = false;
+        requestAnimationFrame(() => sheet.classList.add('is-open'));
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        fechar();
+      }
     });
-    navSheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeSheet));
+    $$('a', sheet).forEach((a) => a.addEventListener('click', fechar));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fechar(); });
   }
 
-  /* ---------- Hero parallax (rAF-throttled, iOS-friendly) ---------- */
-  const heroBg = document.getElementById('heroBg');
-  const heroContent = document.getElementById('heroContent');
-  const hero = document.querySelector('.hero');
+  /* ---------- vídeo do hero ----------
+     Carrega só depois do primeiro paint, e nunca em conexão limitada,
+     em economia de dados ou com "reduzir movimento" ligado.               */
+  const video = $('#heroVideo');
+  if (video && !semMovimento) {
+    const conexao = navigator.connection || {};
+    const conexaoLenta = conexao.saveData === true ||
+                         /(^|-)2g$/.test(conexao.effectiveType || '');
+    if (!conexaoLenta) {
+      // só observa a visibilidade depois que o vídeo já engatou, senão o
+      // pause() inicial aborta o download e o vídeo nunca começa
+      const economizarBateria = () => {
+        const secaoHero = $('.hero');
+        if (!secaoHero || !('IntersectionObserver' in window)) return;
+        new IntersectionObserver((entradas) => {
+          entradas.forEach((e) => {
+            if (e.isIntersecting) video.play().catch(() => {});
+            else video.pause();
+          });
+        }, { threshold: 0.05 }).observe(secaoHero);
+      };
 
-  if (!reduceMotion && heroBg && heroContent && hero) {
-    let ticking = false;
-    const update = () => {
-      const h = hero.offsetHeight || 1;
-      const progress = Math.min(Math.max(window.scrollY / h, 0), 1.2);
-      heroBg.style.transform = `translate3d(0, ${progress * 60}px, 0)`;
-      heroContent.style.transform = `translate3d(0, ${progress * -40}px, 0) scale(${1 - progress * 0.08})`;
-      heroContent.style.opacity = String(Math.max(1 - progress * 1.6, 0));
-      ticking = false;
+      const iniciar = () => {
+        video.load(); // as <source> já estão no HTML; preload="none" segura até aqui
+        const tocar = video.play();
+        if (tocar && tocar.then) {
+          tocar.then(() => { video.classList.add('is-playing'); economizarBateria(); })
+               .catch(() => {}); // autoplay bloqueado: fica no poster
+        } else {
+          video.classList.add('is-playing');
+          economizarBateria();
+        }
+      };
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(iniciar, { timeout: 2500 });
+      } else {
+        window.addEventListener('load', () => setTimeout(iniciar, 400));
+      }
+    }
+  }
+
+  /* ---------- parallax suave do hero ---------- */
+  const heroContent = $('#heroContent');
+  const hero = $('.hero');
+  if (heroContent && hero && !semMovimento) {
+    let agendado = false;
+    const atualizar = () => {
+      const altura = hero.offsetHeight || 1;
+      const p = Math.min(Math.max(window.scrollY / altura, 0), 1);
+      heroContent.style.transform = `translate3d(0, ${p * -46}px, 0) scale(${1 - p * 0.06})`;
+      heroContent.style.opacity = String(Math.max(1 - p * 1.5, 0));
+      agendado = false;
     };
     window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(update);
-        ticking = true;
-      }
+      if (!agendado) { requestAnimationFrame(atualizar); agendado = true; }
     }, { passive: true });
-    update();
+    atualizar();
   }
 
-  /* ---------- Reveal-on-scroll ---------- */
-  const revealEls = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window && revealEls.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
+  /* ---------- revelar ao rolar ---------- */
+  const reveals = $$('[data-reveal]');
+  if ('IntersectionObserver' in window && reveals.length) {
+    const obs = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-    revealEls.forEach((el) => io.observe(el));
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    reveals.forEach((el) => obs.observe(el));
   } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
+    reveals.forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* ---------- Story scrollytelling: crossfade images tied to text steps ---------- */
-  const steps = document.querySelectorAll('.story__step');
-  const frames = document.querySelectorAll('.story__frame');
-  if ('IntersectionObserver' in window && steps.length && frames.length) {
-    const activate = (index) => {
-      steps.forEach((s) => s.classList.toggle('is-active', s.dataset.step === String(index)));
-      frames.forEach((f) => f.classList.toggle('is-active', f.dataset.frame === String(index)));
+  /* ---------- metodologia: troca a foto conforme o texto passa ---------- */
+  const passos = $$('.story__step');
+  const quadros = $$('.story__frame');
+  if ('IntersectionObserver' in window && passos.length && quadros.length) {
+    const ativar = (i) => {
+      passos.forEach((p) => p.classList.toggle('is-active', p.dataset.step === i));
+      quadros.forEach((q) => q.classList.toggle('is-active', q.dataset.frame === i));
     };
-    const storyIO = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activate(entry.target.dataset.step);
-        }
+
+    // entre os passos visíveis, vence o que estiver mais perto do centro da tela —
+    // só "o último que entrou" erra quando o scroll pula vários de uma vez
+    const naFaixa = new Set();
+    const escolher = () => {
+      if (!naFaixa.size) return;
+      const centro = window.innerHeight / 2;
+      let alvo = null, menor = Infinity;
+      naFaixa.forEach((p) => {
+        const r = p.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - centro);
+        if (d < menor) { menor = d; alvo = p; }
       });
+      if (alvo) ativar(alvo.dataset.step);
+    };
+
+    const obs = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) naFaixa.add(e.target); else naFaixa.delete(e.target);
+      });
+      escolher();
     }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach((s) => storyIO.observe(s));
+    passos.forEach((p) => obs.observe(p));
   }
 
-  /* ---------- Gallery: focus item nearest center while scrolling ---------- */
-  const galleryTrack = document.getElementById('galleryTrack');
-  if (galleryTrack) {
-    const items = Array.from(galleryTrack.querySelectorAll('.gallery__item'));
-    const focusNearest = () => {
-      const trackRect = galleryTrack.getBoundingClientRect();
-      const center = trackRect.left + trackRect.width / 2;
-      let closest = null;
-      let closestDist = Infinity;
-      items.forEach((item) => {
-        const r = item.getBoundingClientRect();
-        const itemCenter = r.left + r.width / 2;
-        const dist = Math.abs(itemCenter - center);
-        if (dist < closestDist) {
-          closestDist = dist;
-          closest = item;
-        }
+  /* ---------- galeria: destaca a foto mais próxima do centro ---------- */
+  const trilho = $('#galleryTrack');
+  if (trilho) {
+    const fotos = $$('.shot', trilho);
+    const destacar = () => {
+      const r = trilho.getBoundingClientRect();
+      const centro = r.left + r.width / 2;
+      let alvo = null, menor = Infinity;
+      fotos.forEach((f) => {
+        const fr = f.getBoundingClientRect();
+        const d = Math.abs(fr.left + fr.width / 2 - centro);
+        if (d < menor) { menor = d; alvo = f; }
       });
-      items.forEach((item) => item.classList.toggle('is-focused', item === closest));
+      fotos.forEach((f) => f.classList.toggle('is-focused', f === alvo));
     };
-    let galleryTicking = false;
-    galleryTrack.addEventListener('scroll', () => {
-      if (!galleryTicking) {
-        requestAnimationFrame(() => {
-          focusNearest();
-          galleryTicking = false;
-        });
-        galleryTicking = true;
-      }
+    let agendado = false;
+    trilho.addEventListener('scroll', () => {
+      if (!agendado) { requestAnimationFrame(() => { destacar(); agendado = false; }); agendado = true; }
     }, { passive: true });
-    focusNearest();
-    window.addEventListener('resize', focusNearest);
+    window.addEventListener('resize', destacar);
+    destacar();
   }
 
-  /* ---------- Contact form (client-side only, no backend wired yet) ---------- */
-  const form = document.getElementById('contactForm');
-  const formNote = document.getElementById('formNote');
-  if (form && formNote) {
+  /* ---------- barra fixa do WhatsApp (aparece depois do hero) ---------- */
+  const barra = $('#waBar');
+  if (barra && hero && 'IntersectionObserver' in window) {
+    let passouHero = false;
+    // esconde a barra onde já existe um CTA equivalente na tela
+    const concorrentes = ['#contato', '.footer'].map((s) => $(s)).filter(Boolean);
+    const visiveis = new Set();
+    const sincronizar = () => barra.classList.toggle('is-visible', passouHero && visiveis.size === 0);
+
+    new IntersectionObserver(([e]) => { passouHero = !e.isIntersecting; sincronizar(); },
+      { threshold: 0.2 }).observe(hero);
+
+    const obsConcorrente = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) visiveis.add(e.target); else visiveis.delete(e.target);
+      });
+      sincronizar();
+    }, { threshold: 0.12 });
+    concorrentes.forEach((el) => obsConcorrente.observe(el));
+  }
+
+  /* ---------- formulário: monta a mensagem e abre o WhatsApp ---------- */
+  const form = $('#waForm');
+  const aviso = $('#formNote');
+  if (form && aviso) {
+    // o número vem do próprio link do rodapé — assim existe um só lugar para trocar
+    const linkBase = $('.footer__links a[href*="wa.me"]');
+    const numero = linkBase ? (linkBase.href.match(/wa\.me\/(\d+)/) || [])[1] : '';
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nome = form.nome.value.trim();
-      const telefone = form.telefone.value.trim();
-      if (!nome || !telefone) {
-        formNote.textContent = 'Preencha nome e WhatsApp para continuar.';
+      const nome = $('#fNome').value.trim();
+      if (!nome) {
+        $('#fNome').setAttribute('aria-invalid', 'true');
+        $('#fNome').focus();
+        aviso.style.color = '';
+        aviso.textContent = 'Falta só o seu nome para montar a mensagem.';
         return;
       }
-      formNote.style.color = '#1a7f37';
-      formNote.textContent = `Obrigado, ${nome.split(' ')[0]}! Recebemos seus dados — em breve entraremos em contato pelo WhatsApp.`;
-      form.reset();
+      $('#fNome').removeAttribute('aria-invalid');
+
+      const obs = $('#fObs').value.trim();
+      const partes = [
+        `Olá! Meu nome é ${nome}.`,
+        `Quero agendar a aula experimental gratuita para ${$('#fQuem').value}.`,
+        `Turma de interesse: ${$('#fTurma').value}.`,
+        `Melhor período: ${$('#fPeriodo').value}.`,
+      ];
+      if (obs) partes.push(obs);
+
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(partes.join(' '))}`;
+      aviso.style.color = '#1a7f37';
+      aviso.textContent = 'Abrindo o WhatsApp com a sua mensagem…';
+      window.open(url, '_blank', 'noopener');
     });
   }
 })();
