@@ -471,48 +471,80 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* ---------- horários ---------- */
+/* ---------- horários: organizados por turma, não por hora ----------
+   quem entra no site quer saber quando é a AULA DELE, não o que acontece
+   numa terça às 14h — por isso a grade é agrupada por turma.            */
 .schedule{padding:clamp(78px,10vw,124px) 22px;background:var(--paper-2);}
-.schedule__wrap{
-  max-width:940px;margin:0 auto;overflow-x:auto;
-  background:var(--paper);border-radius:var(--r-md);
+.grade{
+  max-width:1040px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;
+}
+.grade__bloco{
+  background:var(--paper);border-radius:var(--r-md);padding:30px 28px;
   box-shadow:0 1px 3px rgba(18,21,28,.07);
 }
-.schedule__table{
-  width:100%;min-width:620px;border-collapse:collapse;
+.grade__titulo{
+  margin:0 0 20px;padding-bottom:16px;border-bottom:1px solid var(--line);
+  font-size:1.16rem;
+}
+.grade__titulo span{
+  display:block;margin-top:5px;
+  font-family:var(--body);font-size:.85rem;font-weight:400;color:var(--muted);
+  letter-spacing:0;
+}
+
+.turno,.semana{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;}
+.turno > li,.semana > li{
+  display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding:14px 0;border-top:1px solid var(--line);
+}
+.turno > li:first-child,.semana > li:first-child{border-top:0;padding-top:0;}
+
+.turno__quem{display:flex;flex-direction:column;gap:2px;}
+.turno__quem strong{font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.01em;}
+.turno__idade{font-size:.84rem;color:var(--muted);}
+.semana > li > b{
+  font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.01em;
+  min-width:5.5em;
+}
+
+.horas{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;
+}
+.horas li{
+  display:inline-flex;align-items:baseline;gap:.35em;
+  padding:5px 11px;border-radius:999px;
+  background:var(--paper-2);border:1px solid var(--line);
+  font-size:.86rem;font-weight:600;color:var(--ink);
   font-variant-numeric:tabular-nums;
 }
-.schedule__table th,.schedule__table td{
-  padding:15px 16px;text-align:center;font-size:.94rem;
-  border-bottom:1px solid var(--line);
+.horas li b{font-weight:700;color:var(--mat);}
+.horas li i{
+  font-style:normal;font-size:.74rem;font-weight:600;
+  letter-spacing:.04em;color:var(--muted);
 }
-.schedule__table thead th{
-  font-family:var(--display);font-size:.72rem;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+
+.grade__nota{
+  margin:20px 0 0;padding-top:16px;border-top:1px solid var(--line);
+  font-size:.85rem;line-height:1.55;color:var(--muted);
 }
-.schedule__table tbody th{
-  font-family:var(--display);font-weight:700;text-align:left;color:var(--ink);
-}
-.schedule__table td{color:var(--muted);}
-.schedule__table tbody tr:last-child th,
-.schedule__table tbody tr:last-child td{border-bottom:0;}
-.schedule__hint{
-  display:none;
-  max-width:940px;margin:10px auto 0;text-align:right;
-  font-size:.8rem;color:var(--muted);
-}
+.grade__nota strong{color:var(--ink);font-weight:600;}
+.grade__nota i{font-style:normal;font-weight:600;color:var(--muted);}
+
 .schedule__disclaimer{
-  max-width:940px;margin:16px auto 0;text-align:center;
+  max-width:1040px;margin:22px auto 0;text-align:center;
   font-size:.88rem;line-height:1.5;color:var(--muted);
 }
-.schedule__disclaimer strong{color:var(--ink);font-weight:600;}
 
-/* abaixo da largura mínima da tabela ela rola na horizontal: avisa e sinaliza a borda */
-@media (max-width:700px){
-  .schedule__hint{display:block;}
-  .schedule__wrap{
-    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 88%,rgba(0,0,0,.25) 100%);
-    mask-image:linear-gradient(90deg,#000 0,#000 88%,rgba(0,0,0,.25) 100%);
-  }
+@media (max-width:900px){
+  .grade{grid-template-columns:1fr;}
+}
+@media (max-width:520px){
+  .grade__bloco{padding:24px 20px;}
+  /* em tela estreita o nome fica em cima e os horários embaixo, alinhados à esquerda */
+  .turno > li,.semana > li{flex-direction:column;align-items:stretch;gap:10px;}
+  .horas{justify-content:flex-start;}
 }
 
 /* ---------- CTA grande ---------- */
