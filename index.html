@@ -443,7 +443,11 @@
         <ul class="info">
           <li>
             <strong>Endereço</strong>
-            <span>Itaguaí, RJ <em>— confirme o endereço completo com a unidade</em></span>
+            <span>
+              Av. Deputado Octávio Cabral, 840 — Loja 01<br>
+              Centro, Itaguaí — RJ
+              <em>Em frente à Smart Fit</em>
+            </span>
           </li>
           <li>
             <strong>WhatsApp</strong>
@@ -458,11 +462,17 @@
             <span><a href="https://www.facebook.com/316278312395892" target="_blank" rel="noopener">Gracie Barra Centro — Itaguaí</a></span>
           </li>
         </ul>
+        <a class="btn btn--outline place__route"
+           href="https://www.google.com/maps/dir/?api=1&destination=Av.+Deputado+Oct%C3%A1vio+Cabral%2C+840+-+Centro%2C+Itagua%C3%AD+-+RJ"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+          Como chegar
+        </a>
       </div>
       <div class="place__map reveal" data-reveal>
         <iframe
-          title="Mapa — Gracie Barra Itaguaí"
-          src="https://www.google.com/maps?q=Gracie+Barra+Itagua%C3%AD&output=embed"
+          title="Mapa — Gracie Barra Itaguaí, Av. Deputado Octávio Cabral, 840, Centro"
+          src="https://www.google.com/maps?q=Av.+Deputado+Oct%C3%A1vio+Cabral%2C+840+-+Centro%2C+Itagua%C3%AD+-+RJ&z=17&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -538,7 +548,8 @@
 <footer class="footer">
   <div class="footer__inner">
     <img class="footer__logo" src="assets/img/logo-gb-itaguai-claro.png" alt="" width="72" height="72" loading="lazy">
-    <p class="footer__tag">Jiu-Jitsu &amp; Defesa Pessoal · Itaguaí, RJ</p>
+    <p class="footer__tag">Jiu-Jitsu &amp; Defesa Pessoal</p>
+    <address class="footer__addr">Av. Deputado Octávio Cabral, 840 — Loja 01 · Centro, Itaguaí — RJ<br>Em frente à Smart Fit · <a href="tel:+5521986282251">(21) 98628-2251</a></address>
     <nav class="footer__links" aria-label="Redes sociais">
       <a href="https://www.instagram.com/graciebarra.itaguai/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.facebook.com/316278312395892" target="_blank" rel="noopener">Facebook</a>
@@ -555,5 +566,26 @@
 </a>
 
 <script src="assets/js/main.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "Gracie Barra Itaguaí",
+  "description": "Escola de Jiu-Jitsu e defesa pessoal em Itaguaí, RJ, com turmas para crianças, adolescentes e adultos. Primeira aula experimental gratuita.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Deputado Octávio Cabral, 840 — Loja 01",
+    "addressLocality": "Itaguaí",
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "telephone": "+55 21 98628-2251",
+  "sameAs": [
+    "https://www.instagram.com/graciebarra.itaguai/",
+    "https://www.facebook.com/316278312395892"
+  ],
+  "sport": "Brazilian Jiu-Jitsu"
+}
+</script>
 </body>
 </html>
