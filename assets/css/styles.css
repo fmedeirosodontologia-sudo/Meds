@@ -232,20 +232,10 @@ a{color:inherit;text-decoration:none;}
   font-size:clamp(1.02rem,2.1vw,1.25rem);color:rgba(255,255,255,.8);
 }
 .hero__badge{
-  display:inline-flex;align-items:center;gap:.6em;
-  max-width:100%;margin:0 auto 1.9rem;padding:.42em 1.05em .42em .42em;
-  border:1px solid rgba(255,255,255,.24);border-radius:999px;
-  background:rgba(255,255,255,.08);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  font-size:.92rem;line-height:1.25;text-align:left;color:rgba(255,255,255,.92);
-}
-.hero__badge span{
-  flex:none;
+  display:inline-block;
+  margin:0 auto 1.9rem;padding:.5em 1.05em;border-radius:999px;
+  background:var(--gold);color:var(--navy-deep);
   font-family:var(--display);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
-  background:var(--gold);color:var(--navy-deep);padding:.42em .8em;border-radius:999px;
-}
-@media (max-width:460px){
-  .hero__badge{font-size:.84rem;padding-right:.85em;}
 }
 .hero__actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 
