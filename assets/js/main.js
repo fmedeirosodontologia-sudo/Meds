@@ -1,4 +1,4 @@
-/* Gracie Barra Itaguaí — interações do site */
+/* Smile Makers — interações da página */
 (() => {
   'use strict';
 
@@ -111,39 +111,6 @@
     reveals.forEach((el) => el.classList.add('is-visible'));
   }
 
-  /* ---------- metodologia: troca a foto conforme o texto passa ---------- */
-  const passos = $$('.story__step');
-  const quadros = $$('.story__frame');
-  if ('IntersectionObserver' in window && passos.length && quadros.length) {
-    const ativar = (i) => {
-      passos.forEach((p) => p.classList.toggle('is-active', p.dataset.step === i));
-      quadros.forEach((q) => q.classList.toggle('is-active', q.dataset.frame === i));
-    };
-
-    // entre os passos visíveis, vence o que estiver mais perto do centro da tela —
-    // só "o último que entrou" erra quando o scroll pula vários de uma vez
-    const naFaixa = new Set();
-    const escolher = () => {
-      if (!naFaixa.size) return;
-      const centro = window.innerHeight / 2;
-      let alvo = null, menor = Infinity;
-      naFaixa.forEach((p) => {
-        const r = p.getBoundingClientRect();
-        const d = Math.abs(r.top + r.height / 2 - centro);
-        if (d < menor) { menor = d; alvo = p; }
-      });
-      if (alvo) ativar(alvo.dataset.step);
-    };
-
-    const obs = new IntersectionObserver((entradas) => {
-      entradas.forEach((e) => {
-        if (e.isIntersecting) naFaixa.add(e.target); else naFaixa.delete(e.target);
-      });
-      escolher();
-    }, { threshold: 0, rootMargin: '-45% 0px -45% 0px' });
-    passos.forEach((p) => obs.observe(p));
-  }
-
   /* ---------- galeria: destaca a foto mais próxima do centro ---------- */
   const trilho = $('#galleryTrack');
   if (trilho) {
@@ -208,13 +175,15 @@
       }
       $('#fNome').removeAttribute('aria-invalid');
 
+      const cidade = $('#fCidade').value.trim();
       const obs = $('#fObs').value.trim();
       const partes = [
         `Olá! Meu nome é ${nome}.`,
-        `Quero agendar a aula experimental gratuita para ${$('#fQuem').value}.`,
-        `Turma de interesse: ${$('#fTurma').value}.`,
-        `Melhor período: ${$('#fPeriodo').value}.`,
-      ];
+        cidade ? `Atuo em ${cidade}.` : null,
+        `Sobre resina composta: ${$('#fNivel').value}.`,
+        `Melhor horário para contato: ${$('#fPeriodo').value}.`,
+        'Quero saber mais sobre a mentoria Smile Makers.',
+      ].filter(Boolean);
       if (obs) partes.push(obs);
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(partes.join(' '))}`;
