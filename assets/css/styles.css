@@ -33,7 +33,7 @@
   --ease:cubic-bezier(.16,1,.3,1);
   --safe-top:env(safe-area-inset-top,0px);
   --safe-bottom:env(safe-area-inset-bottom,0px);
-  --shadow-lift:0 26px 50px -24px rgba(11,20,32,.34);
+  --shadow-lift:0 30px 60px -30px rgba(11,20,32,.28);
 }
 
 /* ---------- base ---------- */
@@ -136,7 +136,10 @@ a{color:inherit;text-decoration:none;}
 .nav{
   position:fixed;inset:0 0 auto 0;z-index:1000;
   padding-top:var(--safe-top);
-  transition:background-color .4s var(--ease),backdrop-filter .4s var(--ease),box-shadow .4s var(--ease);
+  background:rgba(11,20,32,.22);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  backdrop-filter:saturate(160%) blur(14px);
+  transition:background-color .5s var(--ease),backdrop-filter .5s var(--ease),box-shadow .5s var(--ease);
 }
 .nav.is-solid{
   background:rgba(11,20,32,.86);
@@ -263,8 +266,21 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* ---------- utilitário de revelação ---------- */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease);}
-.reveal.is-visible{opacity:1;transform:none;}
+.reveal{
+  opacity:0;transform:translateY(34px) scale(.975);filter:blur(7px);
+  transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);
+}
+.reveal.is-visible{opacity:1;transform:none;filter:blur(0);}
+
+/* pequeno atraso em cascata para grupos de cartões — reforça a sensação
+   de que os elementos pertencem ao mesmo sistema, não peças soltas */
+.steps .step:nth-child(2),.values__inner .value:nth-child(2),.facts li:nth-child(2){transition-delay:.08s;}
+.steps .step:nth-child(3),.values__inner .value:nth-child(3),.facts li:nth-child(3){transition-delay:.16s;}
+.facts li:nth-child(4){transition-delay:.24s;}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{filter:none;}
+}
 
 /* ---------- estrutura de seções ---------- */
 .section-head{max-width:660px;margin:0 auto 54px;text-align:center;}
@@ -274,7 +290,6 @@ a{color:inherit;text-decoration:none;}
 .trial{
   background:var(--ink);color:#fff;
   padding:clamp(74px,10vw,116px) 22px;
-  border-bottom:10px solid var(--gold);
 }
 .trial__inner{max-width:1120px;margin:0 auto;}
 .trial__head{max-width:680px;margin:0 auto 56px;text-align:center;}
@@ -338,6 +353,49 @@ a{color:inherit;text-decoration:none;}
   .about__media img{aspect-ratio:1/1;object-position:50% 15%;}
 }
 
+/* ---------- bônus: o manual ---------- */
+.bonus{padding:clamp(78px,10vw,124px) 22px;background:var(--paper);overflow:hidden;}
+.bonus__grid{
+  max-width:1120px;margin:0 auto;
+  display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(46px,7vw,88px);align-items:center;
+}
+.bonus__book{position:relative;display:flex;justify-content:center;perspective:1600px;}
+.bonus__book img{
+  width:min(100%,320px);border-radius:8px;
+  box-shadow:0 50px 90px -34px rgba(11,20,32,.45),0 10px 26px -12px rgba(11,20,32,.3);
+  transform:rotateY(-20deg) rotateX(3deg) rotateZ(1deg);
+  transition:transform .7s var(--ease);
+}
+.bonus__book:hover img{transform:rotateY(-11deg) rotateX(1deg) rotateZ(.5deg);}
+.bonus__badge{
+  position:absolute;right:6%;bottom:-18px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  width:108px;height:108px;border-radius:50%;
+  background:var(--navy-deep);color:var(--gold);
+  font-family:var(--display);text-align:center;
+  box-shadow:0 20px 36px -16px rgba(11,20,32,.5);
+}
+.bonus__badge strong{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;}
+.bonus__badge span{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);}
+
+.bonus__text .lead{margin-bottom:1.1em;}
+.bonus__list{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:14px;}
+.bonus__list li{
+  display:flex;align-items:baseline;gap:12px;
+  font-size:1rem;color:var(--ink);
+}
+.bonus__list li::before{
+  content:"";flex:none;width:7px;height:7px;margin-top:.5em;border-radius:50%;background:var(--gold-deep);
+}
+.bonus__note{font-size:.88rem;color:var(--muted);}
+
+@media (max-width:860px){
+  .bonus__grid{grid-template-columns:1fr;text-align:center;}
+  .bonus__book{margin-bottom:8px;}
+  .bonus__book img{transform:rotateY(-8deg) rotateX(2deg);}
+  .bonus__list li{text-align:left;}
+}
+
 /* ---------- para quem é a mentoria ---------- */
 .values{background:var(--navy);color:#fff;padding:clamp(60px,8vw,86px) 22px;}
 .values .section-head{margin-bottom:44px;}
@@ -383,13 +441,15 @@ a{color:inherit;text-decoration:none;}
 .shot figcaption strong{display:block;font-size:.98rem;font-weight:700;}
 .shot figcaption span{display:block;margin-top:2px;font-size:.8rem;font-weight:500;color:rgba(255,255,255,.72);}
 
-/* ---------- bastidores (vídeo) ---------- */
-.voices{padding:clamp(70px,9vw,110px) 22px;background:var(--paper-2);}
-.voices__grid{max-width:940px;margin:0 auto;}
-.voices__grid--solo{max-width:860px;}
+/* ---------- depoimentos (vídeos) ---------- */
+.voices{padding:clamp(78px,10vw,124px) 22px;background:var(--paper-2);}
+.voices__grid{
+  max-width:940px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,52px);
+}
 .voice{margin:0;display:flex;flex-direction:column;gap:16px;}
 .voice video{
-  display:block;height:min(460px,60vh);width:auto;max-width:100%;margin:0 auto;
+  display:block;width:100%;aspect-ratio:9/16;object-fit:cover;
   border-radius:var(--r-lg);background:var(--ink);
   box-shadow:var(--shadow-lift);
 }
@@ -400,18 +460,10 @@ a{color:inherit;text-decoration:none;}
 }
 .voice__role{margin:0;font-size:.85rem;color:var(--muted);}
 .voice__desc{margin:8px 0 0;font-size:.97rem;color:var(--muted);}
-
-.voice--wide{
-  display:grid;grid-template-columns:auto 1fr;
-  gap:clamp(26px,4vw,48px);align-items:center;
-}
-.voice--wide figcaption{gap:6px;}
-.voice--wide .voice__who{font-size:1.28rem;}
-.voice--wide .btn{margin-top:18px;justify-self:start;}
+.voice .btn{margin-top:4px;align-self:flex-start;}
 
 @media (max-width:760px){
-  .voice video{height:min(62vh,460px);}
-  .voice--wide{grid-template-columns:1fr;gap:20px;}
+  .voices__grid{grid-template-columns:1fr;max-width:420px;}
 }
 
 /* ---------- CTA grande ---------- */
