@@ -27,3 +27,18 @@
   Cache-Control: public, max-age=86400
 /assets/js/*
   Cache-Control: public, max-age=86400
+
+# Segunda página do site (Lentes em Resina Estratificada — Art Barra):
+# mesmas regras, num segundo conjunto de assets isolado em /lentes-resina/.
+/lentes-resina/
+  Cache-Control: public, max-age=0, must-revalidate
+/lentes-resina/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/lentes-resina/assets/img/*
+  Cache-Control: public, max-age=604800
+/lentes-resina/assets/video/*
+  Cache-Control: public, max-age=604800
+/lentes-resina/assets/css/*
+  Cache-Control: public, max-age=86400
+/lentes-resina/assets/js/*
+  Cache-Control: public, max-age=86400
