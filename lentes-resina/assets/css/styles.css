@@ -195,11 +195,19 @@ a{color:inherit;text-decoration:none;}
 @media (max-width:880px){.mentor__grid{grid-template-columns:1fr;}.mentor__media img{aspect-ratio:1/1;object-position:50% 15%;}}
 
 /* ---------- ambiente ---------- */
-.ambiente{padding:clamp(60px,8vw,90px) 22px;background:var(--paper);}
-.ambiente__grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-.ambiente__grid figure{margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift);}
-.ambiente__grid img{width:100%;aspect-ratio:4/5;object-fit:cover;}
-@media (max-width:700px){.ambiente__grid{grid-template-columns:1fr;}}
+.ambiente{padding:clamp(60px,8vw,90px) 0;background:var(--paper);}
+.ambiente .section-head{padding:0 22px;}
+.ambiente__track{
+  display:flex;gap:18px;padding:8px max(22px,calc(50vw - 580px)) 10px;
+  overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.ambiente__track::-webkit-scrollbar{display:none;}
+.ambiente__track figure{
+  flex:0 0 auto;width:min(70vw,260px);margin:0;scroll-snap-align:center;
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift);background:#000;
+}
+.ambiente__track img,.ambiente__track video{width:100%;aspect-ratio:4/5;object-fit:cover;}
 
 /* ---------- por que resina estratificada ---------- */
 .porque{padding:clamp(78px,10vw,120px) 22px;background:var(--ink);color:#fff;}
