@@ -260,6 +260,12 @@ a{color:inherit;text-decoration:none;}
 .form__note{min-height:1.3em;margin:2px 0 0;text-align:center;font-size:.92rem;color:#b3261e;}
 @media (max-width:600px){.form__row{grid-template-columns:1fr;}}
 
+/* ---------- cursos e mentorias (para dentistas) ---------- */
+.cursos{padding:clamp(56px,7vw,80px) 22px;background:var(--wine-deep);color:#fff;text-align:center;}
+.cursos__inner{max-width:560px;margin:0 auto;}
+.cursos h2{color:#fff;margin-bottom:.35em;}
+.cursos .lead{margin-bottom:1.6rem;}
+
 /* ---------- rodapé ---------- */
 .footer{background:var(--ink);color:rgba(250,248,245,.62);padding:56px 22px calc(38px + var(--safe-bottom) + 68px);text-align:center;}
 .footer__inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;}
