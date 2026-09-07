@@ -133,9 +133,10 @@
         WhatsApp ou e-mail com uma orientação inicial — sem custo, sem compromisso.
       </p>
 
-      <form class="form" name="pre-avaliacao" method="POST" action="/obrigado.html" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="pre-avaliacao">
-        <p class="sr-only"><label>Não preencha isto: <input name="bot-field"></label></p>
+      <form class="form" method="POST" action="https://formspree.io/f/SEU_FORM_ID" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="Nova pré-avaliação pelo site">
+        <input type="hidden" name="_next" value="obrigado.html">
+        <p class="sr-only"><label>Não preencha isto: <input name="_gotcha"></label></p>
 
         <div class="form__row">
           <label>

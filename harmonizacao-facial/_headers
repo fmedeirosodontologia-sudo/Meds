@@ -1,4 +1,5 @@
-# Cabeçalhos aplicados pela Netlify (arquivo lido em qualquer tipo de deploy).
+# Cabeçalhos de resposta — funciona tanto na Netlify quanto no Cloudflare Pages
+# (as duas leem um arquivo _headers com essa mesma sintaxe).
 # Este site é publicado com "harmonizacao-facial" como diretório base/publicação,
 # por isso os caminhos abaixo são relativos a esta pasta.
 
