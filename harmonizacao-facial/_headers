@@ -1,0 +1,27 @@
+# Cabeçalhos aplicados pela Netlify (arquivo lido em qualquer tipo de deploy).
+# Este site é publicado com "harmonizacao-facial" como diretório base/publicação,
+# por isso os caminhos abaixo são relativos a esta pasta.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# O HTML precisa ser revalidado sempre, senão uma atualização do site
+# demora a chegar em quem já visitou.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Fotos: uma semana de cache. Tempo suficiente para a performance
+# e curto o bastante para uma foto trocada aparecer sem dor de cabeça.
+/assets/img/*
+  Cache-Control: public, max-age=604800
+
+# Folhas de estilo e scripts.
+/assets/css/*
+  Cache-Control: public, max-age=86400
+/assets/js/*
+  Cache-Control: public, max-age=86400
