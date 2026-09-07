@@ -465,19 +465,32 @@ a{color:inherit;text-decoration:none;}
   letter-spacing:-.005em;color:var(--ink);text-align:center;
 }
 
-/* ---------- atendimento (endereço + mapa) ---------- */
-.atendimento__grid{
-  max-width:1160px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(34px,5vw,64px);align-items:center;
+/* ---------- atendimento (dois cartões de endereço + mapa) ---------- */
+.locais{
+  max-width:1160px;margin:0 auto 40px;
+  display:grid;grid-template-columns:1fr 1fr;gap:28px;
 }
-.atendimento__route{margin-top:26px;}
-.atendimento__map{
-  height:clamp(280px,42vw,420px);border-radius:var(--r-lg);overflow:hidden;
-  box-shadow:var(--shadow-lift);background:var(--sand);
+.local-card{
+  background:var(--sand);border-radius:var(--r-lg);padding:30px 28px;
+  display:flex;flex-direction:column;gap:16px;
 }
-.atendimento__map iframe{width:100%;height:100%;border:0;}
+.local-card h3{margin:0;}
+.local-card p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.55;}
+.local-card p em{display:block;margin-top:6px;font-style:normal;font-size:.86rem;color:var(--muted);}
+.local-card__map{
+  height:200px;border-radius:var(--r-md);overflow:hidden;
+  background:var(--paper);box-shadow:0 1px 3px rgba(43,36,30,.08);
+}
+.local-card__map iframe{width:100%;height:100%;border:0;}
+.local-card .btn{align-self:flex-start;margin-top:auto;}
 
-@media (max-width:860px){.atendimento__grid{grid-template-columns:1fr;}}
+.info--footer{
+  max-width:1160px;margin:0 auto;padding-top:28px;border-top:1px solid var(--line);
+  flex-direction:row;flex-wrap:wrap;justify-content:center;gap:40px;
+}
+.info--footer li{border:0;padding:0;text-align:center;}
+
+@media (max-width:860px){.locais{grid-template-columns:1fr;}}
 
 /* ---------- valores ---------- */
 .values{background:var(--ink);color:#fff;padding:clamp(60px,8vw,86px) 22px;}
