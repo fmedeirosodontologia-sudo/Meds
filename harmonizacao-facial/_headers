@@ -15,9 +15,11 @@
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
 
-# Fotos: uma semana de cache. Tempo suficiente para a performance
-# e curto o bastante para uma foto trocada aparecer sem dor de cabeça.
+# Fotos e vídeos: uma semana de cache. Tempo suficiente para a performance
+# e curto o bastante para um arquivo trocado aparecer sem dor de cabeça.
 /assets/img/*
+  Cache-Control: public, max-age=604800
+/assets/video/*
   Cache-Control: public, max-age=604800
 
 # Folhas de estilo e scripts.

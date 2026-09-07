@@ -33,8 +33,8 @@
     </a>
     <nav class="nav__links" aria-label="Navegação principal">
       <a href="#sobre">Sobre</a>
-      <a href="#protocolo">Protocolo</a>
       <a href="#servicos">Serviços</a>
+      <a href="#pre-avaliacao">Pré-avaliação</a>
       <a href="#resultados">Resultados</a>
       <a href="#atendimento">Atendimento</a>
     </nav>
@@ -50,6 +50,7 @@
     <a href="#sobre">Sobre</a>
     <a href="#protocolo">Protocolo</a>
     <a href="#servicos">Serviços</a>
+    <a href="#pre-avaliacao">Pré-avaliação</a>
     <a href="#resultados">Resultados</a>
     <a href="#atendimento">Atendimento</a>
     <a class="btn btn--wa" href="https://wa.me/message/346X2H2NSIOKI1" target="_blank" rel="noopener">Agendar no WhatsApp</a>
@@ -115,7 +116,65 @@
           Quero minha avaliação
         </a>
         <p class="trial__note">Atendimento particular, com horários combinados diretamente pelo WhatsApp.</p>
+        <a class="trial__alt" href="#pre-avaliacao">ou envie uma foto agora para uma pré-avaliação online ↓</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ PRÉ-AVALIAÇÃO POR FOTO ============ -->
+  <section class="contact" id="pre-avaliacao">
+    <div class="contact__inner reveal" data-reveal>
+      <p class="eyebrow">Pré-avaliação online</p>
+      <h2>Envie uma foto do seu rosto.</h2>
+      <p class="lead">
+        A Dra. Nathalia dá uma primeira olhada no seu caso a partir de fotos e te responde pelo
+        WhatsApp ou e-mail com uma orientação inicial — sem custo, sem compromisso.
+      </p>
+
+      <form class="form" name="pre-avaliacao" method="POST" action="/obrigado.html" enctype="multipart/form-data" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="pre-avaliacao">
+        <p class="sr-only"><label>Não preencha isto: <input name="bot-field"></label></p>
+
+        <div class="form__row">
+          <label>
+            <span>Seu nome</span>
+            <input type="text" name="nome" required autocomplete="name" placeholder="Como podemos te chamar">
+          </label>
+          <label>
+            <span>WhatsApp para retorno</span>
+            <input type="tel" name="whatsapp" required autocomplete="tel" placeholder="(21) 90000-0000">
+          </label>
+        </div>
+
+        <label>
+          <span>E-mail <i>(opcional)</i></span>
+          <input type="email" name="email" autocomplete="email" placeholder="seu@email.com">
+        </label>
+
+        <div class="form__row">
+          <label>
+            <span>Foto de frente</span>
+            <input type="file" name="foto_frente" accept="image/*" required>
+          </label>
+          <label>
+            <span>Foto de perfil <i>(opcional)</i></span>
+            <input type="file" name="foto_perfil" accept="image/*">
+          </label>
+        </div>
+        <p class="form__hint">Fotos com boa luz, sem maquiagem pesada e olhando para a câmera ajudam na pré-avaliação. Até 5&nbsp;MB por arquivo.</p>
+
+        <label>
+          <span>O que você gostaria de melhorar? <i>(opcional)</i></span>
+          <textarea name="obs" rows="3" placeholder="Conte o que te incomoda ou o que te chamou atenção em algum procedimento"></textarea>
+        </label>
+
+        <button type="submit" class="btn btn--wa btn--lg btn--full">
+          Enviar para pré-avaliação
+        </button>
+        <p class="form__hint form__hint--center">
+          Suas fotos são tratadas com confidencialidade e usadas apenas para esta avaliação.
+        </p>
+      </form>
     </div>
   </section>
 
@@ -239,6 +298,36 @@
     </div>
   </section>
 
+  <!-- ============ VÍDEOS ============ -->
+  <section class="voices" id="videos">
+    <div class="section-head reveal" data-reveal>
+      <p class="eyebrow">No Instagram</p>
+      <h2>Ela também ensina.</h2>
+      <p class="lead">Conteúdo real, gravado por ela para explicar o que faz sentido em cada fase da pele.</p>
+    </div>
+
+    <div class="voices__grid">
+      <figure class="voice-vid reveal" data-reveal>
+        <video controls preload="none" playsinline poster="assets/img/fotos/video-2-poster.jpg" aria-label="Vídeo: 3 procedimentos indispensáveis para os 30+">
+          <source src="assets/video/video-2.mp4" type="video/mp4">
+          Seu navegador não reproduz vídeo. <a href="assets/video/video-2.mp4">Baixar</a>.
+        </video>
+        <figcaption>
+          <p class="voice-vid__title">3 procedimentos indispensáveis para os 30+</p>
+        </figcaption>
+      </figure>
+      <figure class="voice-vid reveal" data-reveal>
+        <video controls preload="none" playsinline poster="assets/img/fotos/video-1-poster.jpg" aria-label="Vídeo: Dra. Nathalia respondendo uma dúvida real">
+          <source src="assets/video/video-1.mp4" type="video/mp4">
+          Seu navegador não reproduz vídeo. <a href="assets/video/video-1.mp4">Baixar</a>.
+        </video>
+        <figcaption>
+          <p class="voice-vid__title">Respondendo uma dúvida real, direto pelo áudio</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <!-- ============ CASOS (falas da própria Dra. Nathalia) ============ -->
   <section class="voices">
     <div class="section-head reveal" data-reveal>
@@ -356,40 +445,49 @@
       <p class="lead">Escolha o local mais perto de você — a confirmação de horário é sempre pelo WhatsApp.</p>
     </div>
 
-    <div class="locais">
-      <div class="local reveal" data-reveal>
-        <h3 class="local__titulo">Barra da Tijuca — RJ</h3>
-        <p>Atende na <strong>Art Barra Odontologia &amp; Face</strong>, com horário combinado individualmente.</p>
-        <p><strong>CRO-RJ</strong> 45181</p>
-      </div>
-      <div class="local reveal" data-reveal>
-        <h3 class="local__titulo">Itaguaí — RJ</h3>
-        <p>Atendimento particular, com horário combinado individualmente.</p>
-        <p><strong>CRO-RJ</strong> 45181</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ REDES ============ -->
-  <section class="place">
-    <div class="place__inner reveal" data-reveal>
-      <p class="eyebrow">Acompanhe</p>
-      <h2>Casos, bastidores e protocolos no Instagram.</h2>
-      <div class="place__links">
-        <a href="https://www.instagram.com/dranathaliazgomes/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.22.6 1.77 1.15.55.55.9 1.11 1.15 1.77.25.64.42 1.37.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.22 1.15-1.77A4.9 4.9 0 0 1 5.45.53C6.09.28 6.82.11 7.88.06 8.94.01 9.28 0 12 0Zm0 5a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm0 11.5A4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 0 1 0 9Zm7.2-11.7a1.63 1.63 0 1 1-3.26 0 1.63 1.63 0 0 1 3.26 0Z"/></svg>
-          @dranathaliazgomes
+    <div class="atendimento__grid">
+      <div class="atendimento__info reveal" data-reveal>
+        <ul class="info">
+          <li>
+            <strong>Barra da Tijuca</strong>
+            <span>
+              Art Barra Odontologia &amp; Face — Dimension Office Park<br>
+              Av. Embaixador Abelardo Bueno, 1 — Barra da Tijuca, Rio de Janeiro — RJ
+              <em>Horário combinado por WhatsApp</em>
+            </span>
+          </li>
+          <li>
+            <strong>Itaguaí</strong>
+            <span>Endereço combinado diretamente pelo WhatsApp, conforme o horário agendado.</span>
+          </li>
+          <li>
+            <strong>CRO-RJ</strong>
+            <span>45181 — Dra. Nathalia Gomes</span>
+          </li>
+          <li>
+            <strong>Instagram</strong>
+            <span><a href="https://www.instagram.com/dranathaliazgomes/" target="_blank" rel="noopener">@dranathaliazgomes</a></span>
+          </li>
+        </ul>
+        <a class="btn btn--outline atendimento__route"
+           href="https://www.google.com/maps/dir/?api=1&destination=Av.+Embaixador+Abelardo+Bueno%2C+1+-+Barra+da+Tijuca%2C+Rio+de+Janeiro+-+RJ"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+          Como chegar — Barra da Tijuca
         </a>
-        <a href="https://wa.me/message/346X2H2NSIOKI1" target="_blank" rel="noopener">
-          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-          WhatsApp
-        </a>
+      </div>
+      <div class="atendimento__map reveal" data-reveal>
+        <iframe
+          title="Mapa — Dimension Office Park, Av. Embaixador Abelardo Bueno, 1, Barra da Tijuca"
+          src="https://www.google.com/maps?q=Dimension+Office+Park,+Av.+Embaixador+Abelardo+Bueno,+1+-+Barra+da+Tijuca,+Rio+de+Janeiro+-+RJ&z=16&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
 
   <!-- ============ FORMULÁRIO -> WHATSAPP ============ -->
-  <section class="contact" id="contato">
+  <section class="contact contact--alt" id="contato">
     <div class="contact__inner reveal" data-reveal>
       <p class="eyebrow">Agende em 30 segundos</p>
       <h2>Vamos marcar sua avaliação?</h2>
@@ -467,7 +565,15 @@
   "@context": "https://schema.org",
   "@type": "Dentist",
   "name": "Dra. Nathalia Gomes — Harmonização Orofacial",
-  "description": "Cirurgiã-dentista especialista em Harmonização Orofacial. Atendimento em Barra da Tijuca e Itaguaí, RJ.",
+  "description": "Cirurgiã-dentista especialista em Harmonização Orofacial. Atendimento em Barra da Tijuca (Art Barra Odontologia & Face, Dimension Office Park) e Itaguaí, RJ.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Embaixador Abelardo Bueno, 1 — Dimension Office Park",
+    "addressLocality": "Rio de Janeiro",
+    "addressRegion": "RJ",
+    "postalCode": "22775-022",
+    "addressCountry": "BR"
+  },
   "areaServed": ["Barra da Tijuca, Rio de Janeiro - RJ", "Itaguaí - RJ"],
   "medicalSpecialty": "Harmonização Orofacial",
   "sameAs": [
