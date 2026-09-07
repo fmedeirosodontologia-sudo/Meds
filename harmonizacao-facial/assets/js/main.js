@@ -143,15 +143,14 @@
     concorrentes.forEach((el) => obsConcorrente.observe(el));
   }
 
-  /* ---------- formulário: monta a mensagem, copia e abre o WhatsApp ----------
-     O link oficial dela é um atalho de mensagem pronta (wa.me/message/CODIGO),
-     que não aceita texto por parâmetro como um número comum aceitaria.
-     Por isso a mensagem é copiada para a área de transferência e a pessoa só
-     precisa colar assim que o chat abrir. */
+  /* ---------- formulário: monta a mensagem e abre o WhatsApp já preenchido ---------- */
   const form = $('#waForm');
   const aviso = $('#formNote');
   const linkWa = $('#waLink');
   if (form && aviso && linkWa) {
+    // o número vem do próprio link base — assim existe um só lugar para trocar
+    const numero = (linkWa.href.match(/wa\.me\/(\d+)/) || [])[1];
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const nome = $('#fNome').value.trim();
@@ -173,17 +172,9 @@
       if (obs) partes.push(obs);
       const mensagem = partes.join(' ');
 
-      const finalizar = () => {
-        aviso.style.color = '#8a6238';
-        aviso.textContent = 'Mensagem copiada! Cole no campo do WhatsApp assim que o chat abrir.';
-        window.open(linkWa.href, '_blank', 'noopener');
-      };
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(mensagem).then(finalizar).catch(finalizar);
-      } else {
-        finalizar();
-      }
+      aviso.style.color = '#8a6238';
+      aviso.textContent = 'Abrindo o WhatsApp com a sua mensagem…';
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank', 'noopener');
     });
   }
 })();
