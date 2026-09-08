@@ -70,6 +70,22 @@
   <!-- ============ HERO ============ -->
   <section class="ghero" id="topo">
     <div class="ghero__inner">
+      <div class="ghero__media">
+        <p class="ghero__reminder">🔔 <strong>Assista até o final</strong> — o recado completo é nos últimos segundos.</p>
+        <div class="ghero__video">
+          <video id="gbfVideo" autoplay muted loop playsinline preload="auto"
+                 poster="assets/video/gbf/gbf-recado-poster.jpg"
+                 aria-label="Recado em vídeo sobre a importância do Jiu-Jitsu para mulheres"
+                 controls>
+            <source src="assets/video/gbf/gbf-recado.mp4" type="video/mp4">
+            Seu navegador não reproduz vídeo. <a href="assets/video/gbf/gbf-recado.mp4">Baixar</a>.
+          </video>
+          <button class="ghero__unmute" id="gbfUnmute" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4Z"/><path d="M17 8a5 5 0 0 1 0 8M19.5 5.5a9 9 0 0 1 0 13" stroke-linecap="round"/></svg>
+            Ativar o som
+          </button>
+        </div>
+      </div>
       <div>
         <p class="ghero__eventtag"><i></i> 23 de setembro · 19h · Exclusiva para mulheres</p>
         <h1>Sua força<br>não pede <em>licença</em>.</h1>
@@ -91,14 +107,6 @@
           <li><strong>Faixa-preta 4º grau</strong><span>professora Vanessa Silva</span></li>
         </ul>
       </div>
-
-      <figure class="ghero__poster">
-        <img src="assets/img/gbf/gbf-cartaz-evento@600.jpg"
-             srcset="assets/img/gbf/gbf-cartaz-evento@360.jpg 360w, assets/img/gbf/gbf-cartaz-evento@600.jpg 600w"
-             sizes="(max-width:920px) 70vw, 300px"
-             alt="Cartaz: Primeira aula GBF, 23 de setembro às 19h, exclusiva para mulheres, com a professora Vanessa Silva, faixa-preta 4º grau"
-             width="600" height="900" loading="eager" decoding="async">
-      </figure>
     </div>
   </section>
 
@@ -361,6 +369,44 @@
     </div>
   </section>
 
+  <!-- ============ FORMULÁRIO -> WHATSAPP ============ -->
+  <section class="contact" id="contato">
+    <div class="contact__inner reveal" data-reveal>
+      <p class="eyebrow eyebrow--pink">Fale com a gente</p>
+      <h2>Quer saber mais sobre a GBF?</h2>
+      <p class="lead">
+        Preencha os campos e o botão abre o WhatsApp com a mensagem já pronta — é só apertar enviar.
+      </p>
+
+      <form class="form" id="gbfForm" novalidate>
+        <label>
+          <span>Seu nome</span>
+          <input type="text" name="nome" id="gNome" required autocomplete="name" placeholder="Como podemos te chamar">
+        </label>
+
+        <label>
+          <span>O que você quer saber</span>
+          <select name="interesse" id="gInteresse">
+            <option>Quero ir na aula especial do dia 23/09</option>
+            <option>Quero saber os horários regulares da turma GBF</option>
+            <option>Ainda não sei, quero conversar antes</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Quer contar mais alguma coisa? <i>(opcional)</i></span>
+          <textarea name="obs" id="gObs" rows="3" placeholder="Ex.: nunca treinei, tenho receio de treinar perto de homens, quero levar uma amiga…"></textarea>
+        </label>
+
+        <button type="submit" class="btn btn--pink btn--lg btn--full">
+          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.15.16-.29.18-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+          Abrir WhatsApp com minha mensagem
+        </button>
+        <p class="form__note" id="gFormNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer class="gfooter">
@@ -374,6 +420,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/gbf.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
