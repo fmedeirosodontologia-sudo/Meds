@@ -12,6 +12,13 @@
   Cache-Control: public, max-age=0, must-revalidate
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+/indicacoes.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# JSON do ranking da disputa de indicações: cache curto, para o ranking
+# atualizado pela equipe aparecer rápido sem sobrecarregar em cada visita.
+/assets/data/*
+  Cache-Control: public, max-age=300, must-revalidate
 
 # Fotos e vídeo: uma semana de cache. Tempo suficiente para a performance
 # e curto o bastante para uma foto trocada aparecer sem dor de cabeça.
