@@ -4,6 +4,17 @@
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
 
+  /* metas bônus: vale a maior faixa já atingida, independente da posição */
+  const METAS = [
+    { min: 40, texto: '🥋 Kimono Lutador' },
+    { min: 25, texto: '🎒 Mochila' },
+    { min: 10, texto: '🧴 Garrafa' },
+  ];
+  const metaAtingida = (n) => {
+    const meta = METAS.find((m) => (n || 0) >= m.min);
+    return meta ? `<span class="ranking__badge">${meta.texto}</span>` : '';
+  };
+
   /* ---------- ranking ----------
      Lido de assets/data/ranking-indicacoes.json. A equipe atualiza esse
      arquivo (campo "ranking": [{ "nome": "...", "matriculas": N }, ...])
@@ -25,7 +36,7 @@
             <li class="ranking__item">
               <span class="ranking__pos">${i + 1}º</span>
               <span class="ranking__nome">${escapeHtml(item.nome || '—')}</span>
-              ${(item.matriculas || 0) >= 40 ? '<span class="ranking__badge">🥋 Kimono Lutador</span>' : ''}
+              ${metaAtingida(item.matriculas)}
               <span class="ranking__pontos"><strong>${item.matriculas || 0}</strong>${item.matriculas === 1 ? 'matrícula' : 'matrículas'}</span>
             </li>
           `).join('');

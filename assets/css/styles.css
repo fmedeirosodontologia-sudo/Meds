@@ -785,6 +785,20 @@ a{color:inherit;text-decoration:none;}
   flex:none;width:120px;height:120px;border-radius:var(--r-sm);
   object-fit:cover;background:rgba(255,255,255,.08);
 }
+.prize-bonus__list{
+  list-style:none;margin:0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.14);
+  flex:none;min-width:220px;display:flex;flex-direction:column;gap:14px;
+}
+@media (min-width:680px){
+  .prize-bonus__list{padding:0 0 0 28px;border-top:0;border-left:1px solid rgba(255,255,255,.14);}
+}
+.prize-bonus__list li{display:flex;align-items:center;gap:12px;font-size:.94rem;color:rgba(255,255,255,.75);}
+.prize-bonus__list strong{color:#fff;}
+.prize-bonus__n{
+  display:flex;align-items:center;justify-content:center;flex:none;
+  width:36px;height:36px;border-radius:999px;background:var(--red);color:#fff;
+  font-family:var(--display);font-weight:800;font-size:.9rem;
+}
 
 /* ranking */
 .ranking{padding:clamp(78px,10vw,124px) 22px;background:var(--paper);}
