@@ -771,8 +771,9 @@ a{color:inherit;text-decoration:none;}
   max-width:1000px;margin:22px auto 0;
   display:flex;align-items:center;gap:24px;flex-wrap:wrap;
   background:var(--ink);color:#fff;border-radius:var(--r-md);
-  padding:28px 30px;
+  padding:26px 22px;
 }
+@media (min-width:520px){.prize-bonus{padding:28px 30px;}}
 .prize-bonus__text{flex:1;min-width:240px;}
 .prize-bonus__tag{
   display:inline-block;margin-bottom:10px;
@@ -781,23 +782,24 @@ a{color:inherit;text-decoration:none;}
 }
 .prize-bonus h3{color:#fff;margin-bottom:.3em;font-size:1.28rem;}
 .prize-bonus p{margin:0;color:rgba(255,255,255,.72);max-width:58ch;font-size:.98rem;}
-.prize-bonus__img{
-  flex:none;width:120px;height:120px;border-radius:var(--r-sm);
-  object-fit:cover;background:rgba(255,255,255,.08);
-}
 .prize-bonus__list{
   list-style:none;margin:0;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.14);
-  flex:none;min-width:220px;display:flex;flex-direction:column;gap:14px;
+  flex:1 1 260px;min-width:0;width:100%;display:flex;flex-direction:column;gap:14px;
 }
 @media (min-width:680px){
-  .prize-bonus__list{padding:0 0 0 28px;border-top:0;border-left:1px solid rgba(255,255,255,.14);}
+  .prize-bonus__list{flex-basis:320px;padding:0 0 0 28px;border-top:0;border-left:1px solid rgba(255,255,255,.14);}
 }
-.prize-bonus__list li{display:flex;align-items:center;gap:12px;font-size:.94rem;color:rgba(255,255,255,.75);}
+.prize-bonus__list li{display:flex;align-items:center;gap:14px;min-width:0;font-size:.94rem;color:rgba(255,255,255,.75);}
 .prize-bonus__list strong{color:#fff;}
+.prize-bonus__img{
+  flex:none;width:56px;height:56px;border-radius:var(--r-sm);
+  object-fit:cover;background:#fff;
+}
+.prize-bonus__info{display:flex;align-items:center;gap:10px;min-width:0;flex-wrap:wrap;row-gap:2px;}
 .prize-bonus__n{
   display:flex;align-items:center;justify-content:center;flex:none;
-  width:36px;height:36px;border-radius:999px;background:var(--red);color:#fff;
-  font-family:var(--display);font-weight:800;font-size:.9rem;
+  width:34px;height:34px;border-radius:999px;background:var(--red);color:#fff;
+  font-family:var(--display);font-weight:800;font-size:.86rem;
 }
 
 /* ranking */
