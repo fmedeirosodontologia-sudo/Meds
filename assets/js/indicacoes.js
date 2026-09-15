@@ -25,6 +25,7 @@
             <li class="ranking__item">
               <span class="ranking__pos">${i + 1}º</span>
               <span class="ranking__nome">${escapeHtml(item.nome || '—')}</span>
+              ${(item.matriculas || 0) >= 40 ? '<span class="ranking__badge">🥋 Kimono Lutador</span>' : ''}
               <span class="ranking__pontos"><strong>${item.matriculas || 0}</strong>${item.matriculas === 1 ? 'matrícula' : 'matrículas'}</span>
             </li>
           `).join('');
