@@ -3,6 +3,7 @@
   'use strict';
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
   /* metas bônus: vale a maior faixa já atingida, independente da posição */
   const METAS = [
@@ -57,6 +58,33 @@
     }[c]));
   }
 
+  /* ---------- amigos indicados: adicionar/remover linhas ---------- */
+  const indicadosList = $('#indicadosList');
+  const indicadoTemplate = $('#indicadoTemplate');
+  const addIndicado = $('#addIndicado');
+
+  const atualizarRemover = () => {
+    const linhas = $$('.indicado', indicadosList);
+    linhas.forEach((linha) => {
+      linha.querySelector('.indicado__remover').hidden = linhas.length < 2;
+    });
+  };
+
+  if (indicadosList && indicadoTemplate && addIndicado) {
+    addIndicado.addEventListener('click', () => {
+      indicadosList.appendChild(indicadoTemplate.content.cloneNode(true));
+      atualizarRemover();
+      $$('.rIndicadoNome', indicadosList).pop().focus();
+    });
+
+    indicadosList.addEventListener('click', (e) => {
+      const botao = e.target.closest('.indicado__remover');
+      if (!botao) return;
+      botao.closest('.indicado').remove();
+      atualizarRemover();
+    });
+  }
+
   /* ---------- formulário: monta a mensagem e abre o WhatsApp ----------
      Mesmo caminho do formulário da home: sem backend, o WhatsApp em si é
      o registro da indicação — a equipe recebe a conversa e depois atualiza
@@ -72,27 +100,46 @@
 
       const alunoNome = $('#rAlunoNome').value.trim();
       const alunoWhats = $('#rAlunoWhats').value.trim();
-      const indicadoNome = $('#rIndicadoNome').value.trim();
-      const indicadoWhats = $('#rIndicadoWhats').value.trim();
       const obs = $('#rObs').value.trim();
 
-      if (!alunoNome || !alunoWhats || !indicadoNome || !indicadoWhats) {
-        aviso.style.color = '';
-        aviso.textContent = 'Preencha seu nome e WhatsApp, e o nome e WhatsApp do amigo indicado.';
+      const linhas = $$('.indicado', indicadosList).map((linha) => ({
+        nome: linha.querySelector('.rIndicadoNome').value.trim(),
+        whats: linha.querySelector('.rIndicadoWhats').value.trim(),
+      }));
+      const preenchidas = linhas.filter((l) => l.nome || l.whats);
+      const completas = preenchidas.filter((l) => l.nome && l.whats);
+
+      aviso.style.color = '';
+      if (!alunoNome || !alunoWhats) {
+        aviso.textContent = 'Preencha seu nome e WhatsApp.';
+        return;
+      }
+      if (!preenchidas.length) {
+        aviso.textContent = 'Preencha o nome e o WhatsApp de pelo menos um amigo indicado.';
+        return;
+      }
+      if (completas.length < preenchidas.length) {
+        aviso.textContent = 'Falta o nome ou o WhatsApp de um dos amigos — complete ou remova a linha.';
         return;
       }
 
-      const partes = [
-        `Olá! Sou aluno(a) da Gracie Barra Itaguaí: ${alunoNome} (${alunoWhats}).`,
-        `Quero indicar ${indicadoNome} (${indicadoWhats}) para a disputa Indique e Ganhe.`,
-      ];
+      const partes = [`Olá! Sou aluno(a) da Gracie Barra Itaguaí: ${alunoNome} (${alunoWhats}).`];
+      if (completas.length === 1) {
+        partes.push(`Quero indicar ${completas[0].nome} (${completas[0].whats}) para a disputa Indique e Ganhe.`);
+      } else {
+        partes.push('Quero indicar estes amigos para a disputa Indique e Ganhe:');
+        completas.forEach((l, i) => partes.push(`${i + 1}) ${l.nome} (${l.whats})`));
+      }
       if (obs) partes.push(obs);
 
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(partes.join(' '))}`;
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(partes.join('\n'))}`;
       aviso.style.color = '#1a7f37';
       aviso.textContent = 'Abrindo o WhatsApp com a sua indicação…';
       window.open(url, '_blank', 'noopener');
       form.reset();
+
+      $$('.indicado', indicadosList).slice(1).forEach((linha) => linha.remove());
+      atualizarRemover();
     });
   }
 })();

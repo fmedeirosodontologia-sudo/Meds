@@ -228,16 +228,39 @@
           </label>
         </div>
 
-        <div class="form__row">
-          <label>
-            <span>Nome do amigo indicado</span>
-            <input type="text" name="indicado_nome" id="rIndicadoNome" required autocomplete="off" placeholder="Nome do amigo ou familiar">
-          </label>
-          <label>
-            <span>WhatsApp do amigo indicado</span>
-            <input type="tel" name="indicado_whatsapp" id="rIndicadoWhats" required autocomplete="off" placeholder="(21) 90000-0000">
-          </label>
+        <div id="indicadosList">
+          <div class="indicado">
+            <div class="form__row">
+              <label>
+                <span>Nome do amigo indicado</span>
+                <input type="text" class="rIndicadoNome" required autocomplete="off" placeholder="Nome do amigo ou familiar">
+              </label>
+              <label>
+                <span>WhatsApp do amigo indicado</span>
+                <input type="tel" class="rIndicadoWhats" required autocomplete="off" placeholder="(21) 90000-0000">
+              </label>
+            </div>
+            <button type="button" class="indicado__remover" hidden>Remover este amigo</button>
+          </div>
         </div>
+
+        <template id="indicadoTemplate">
+          <div class="indicado">
+            <div class="form__row">
+              <label>
+                <span>Nome do amigo indicado</span>
+                <input type="text" class="rIndicadoNome" autocomplete="off" placeholder="Nome do amigo ou familiar">
+              </label>
+              <label>
+                <span>WhatsApp do amigo indicado</span>
+                <input type="tel" class="rIndicadoWhats" autocomplete="off" placeholder="(21) 90000-0000">
+              </label>
+            </div>
+            <button type="button" class="indicado__remover">Remover este amigo</button>
+          </div>
+        </template>
+
+        <button type="button" class="indicado__add" id="addIndicado">+ Indicar mais um amigo</button>
 
         <label>
           <span>Quer contar mais alguma coisa? <i>(opcional)</i></span>

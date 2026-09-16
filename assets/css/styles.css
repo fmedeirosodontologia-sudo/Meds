@@ -682,6 +682,26 @@ a{color:inherit;text-decoration:none;}
 
 @media (max-width:600px){.form__row{grid-template-columns:1fr;}}
 
+#indicadosList{display:flex;flex-direction:column;gap:20px;}
+.indicado{display:flex;flex-direction:column;gap:8px;}
+.indicado__remover{
+  align-self:flex-end;
+  background:none;border:0;padding:0;
+  font:inherit;font-size:.85rem;font-weight:600;color:var(--red);
+  cursor:pointer;
+}
+.indicado__remover:hover{text-decoration:underline;}
+.indicado__add{
+  align-self:flex-start;
+  display:inline-flex;align-items:center;gap:.4em;
+  background:none;border:1.5px dashed var(--line);border-radius:999px;
+  padding:.7em 1.3em;
+  font:inherit;font-family:var(--display);font-size:.9rem;font-weight:700;color:var(--red);
+  cursor:pointer;transition:border-color .2s,background-color .2s;
+}
+.indicado__add:hover{border-color:var(--red);background:rgba(208,56,43,.05);}
+@media (max-width:600px){.indicado__add{align-self:stretch;justify-content:center;}}
+
 /* ---------- rodapé ---------- */
 .footer{
   background:var(--ink);color:rgba(255,255,255,.6);
