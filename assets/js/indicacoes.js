@@ -57,16 +57,15 @@
     }[c]));
   }
 
-  /* ---------- formulário: envia para o Netlify Forms e avisa no WhatsApp ---------- */
+  /* ---------- formulário: monta a mensagem e abre o WhatsApp ----------
+     Mesmo caminho do formulário da home: sem backend, o WhatsApp em si é
+     o registro da indicação — a equipe recebe a conversa e depois atualiza
+     o ranking à mão. */
   const form = $('#refForm');
   const aviso = $('#refFormNote');
   if (form && aviso) {
     const linkBase = $('.footer__links a[href*="wa.me"]');
     const numero = linkBase ? (linkBase.href.match(/wa\.me\/(\d+)/) || [])[1] : '';
-
-    const encode = (data) => Object.keys(data)
-      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
-      .join('&');
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -83,39 +82,17 @@
         return;
       }
 
-      const dados = {
-        'form-name': 'indicacoes',
-        aluno_nome: alunoNome,
-        aluno_whatsapp: alunoWhats,
-        indicado_nome: indicadoNome,
-        indicado_whatsapp: indicadoWhats,
-        obs,
-      };
+      const partes = [
+        `Olá! Sou aluno(a) da Gracie Barra Itaguaí: ${alunoNome} (${alunoWhats}).`,
+        `Quero indicar ${indicadoNome} (${indicadoWhats}) para a disputa Indique e Ganhe.`,
+      ];
+      if (obs) partes.push(obs);
 
-      aviso.style.color = '';
-      aviso.textContent = 'Enviando sua indicação…';
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(dados),
-      })
-        .then(() => avisarSucesso())
-        .catch(() => avisarSucesso()); // mesmo se a rede falhar, o WhatsApp garante o contato
-
-      function avisarSucesso() {
-        aviso.style.color = '#1a7f37';
-        aviso.textContent = 'Indicação enviada! Abrindo o WhatsApp para confirmar com a gente…';
-        form.reset();
-
-        const partes = [
-          `Olá! Sou aluno(a) da Gracie Barra Itaguaí: ${alunoNome} (${alunoWhats}).`,
-          `Quero indicar ${indicadoNome} (${indicadoWhats}) para a disputa Indique e Ganhe.`,
-        ];
-        if (obs) partes.push(obs);
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(partes.join(' '))}`;
-        window.open(url, '_blank', 'noopener');
-      }
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(partes.join(' '))}`;
+      aviso.style.color = '#1a7f37';
+      aviso.textContent = 'Abrindo o WhatsApp com a sua indicação…';
+      window.open(url, '_blank', 'noopener');
+      form.reset();
     });
   }
 })();
