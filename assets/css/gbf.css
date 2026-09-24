@@ -200,12 +200,6 @@
 .gbf-callout p{margin:0;font-size:.92rem;color:#5a2c43;}
 .gbf-callout strong{color:var(--pink-deep);}
 
-/* ---------- registro / galeria da turma ---------- */
-.recap-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-.recap-photos figure{margin:0;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lift);}
-.recap-photos img{width:100%;height:100%;object-fit:cover;}
-@media (max-width:700px){.recap-photos{grid-template-columns:1fr;}}
-
 /* ---------- instrutora ---------- */
 .instrutora{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;}
 .instrutora__photo{
