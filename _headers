@@ -20,7 +20,8 @@
 /assets/video/*
   Cache-Control: public, max-age=604800
 
-# Fontes e folhas de estilo praticamente não mudam.
+# Fontes e folhas de estilo praticamente não mudam. CSS e JS são carregados
+# com ?v=N no index.html: ao mudar um deles, suba o número para furar o cache.
 /assets/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 /assets/css/*
