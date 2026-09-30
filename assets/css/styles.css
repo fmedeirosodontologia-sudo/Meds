@@ -320,6 +320,22 @@ a{color:inherit;text-decoration:none;}
   .step h3{margin-bottom:.3em;align-self:center;}
 }
 
+/* ---------- GB feminino ---------- */
+.gbf{padding:0 22px clamp(64px,8vw,96px);background:var(--paper);}
+.gbf__card{
+  max-width:1160px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:28px 48px;flex-wrap:wrap;
+  padding:clamp(30px,4.5vw,52px);border-radius:var(--r-lg);
+  background:linear-gradient(135deg,var(--ink-soft) 0%,var(--ink) 100%);color:#fff;
+  box-shadow:var(--shadow-lift);
+}
+.gbf__text{flex:1 1 380px;max-width:58ch;}
+.gbf__text h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:.4em;}
+.gbf__text p:last-child{margin:0;color:rgba(255,255,255,.76);}
+.gbf__btn{background:#fff;color:var(--ink);flex:none;}
+.gbf__btn:hover{background:var(--red);color:#fff;}
+.gbf__btn svg{width:1em;height:1em;fill:currentColor;}
+
 /* ---------- sobre ---------- */
 .about{padding:clamp(78px,10vw,124px) 22px;background:var(--paper);}
 .about__grid{
