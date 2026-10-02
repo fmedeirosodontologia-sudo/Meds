@@ -42,15 +42,9 @@ var CHECKOUT_URL = "https://pay.kiwify.com.br/SEU-LINK";
 
 Todos os botões da página passam a levar para o checkout. Os parâmetros UTM do anúncio (`?utm_source=...`) são repassados automaticamente para o checkout, para você saber de onde veio cada venda.
 
-## 3. Ajuste o rodapé (obrigatório)
+## 3. Rodapé e foto da paciente
 
-A publicidade odontológica precisa trazer nome e número de inscrição no CRO. No rodapé do `site/index.html`, troque:
-
-```html
-<span data-cro>CRO-RJ 00000</span>
-```
-
-pelo seu número real.
+O rodapé já traz nome e CRO (CRO-RJ 42835), como exige a publicidade odontológica.
 
 A página usa a foto de sorriso que já está no manual (página "Camada de esmalte"). Use-a apenas se você tiver o termo de autorização de imagem da paciente; se não tiver, troque `site/img/sorriso.jpg` por outra foto de caso seu, autorizada.
 
@@ -71,7 +65,6 @@ A página usa a foto de sorriso que já está no manual (página "Camada de esma
 
 - [ ] Faça uma compra teste (pode ser uma compra real que você reembolsa depois) e confira se o PDF chega no e-mail.
 - [ ] Clique em todos os botões da página no celular e veja se abrem o checkout.
-- [ ] Confira se o número do CRO está no rodapé.
 - [ ] Se for anunciar no Instagram/Facebook, crie o Pixel da Meta, cole o código no `<head>` do `site/index.html` e configure o mesmo Pixel na Kiwify (ela dispara o evento de compra).
 
 ---
