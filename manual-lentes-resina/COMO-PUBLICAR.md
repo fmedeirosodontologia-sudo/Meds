@@ -26,21 +26,11 @@ Os dois lados funcionam assim:
 
 *Prefere Hotmart?* O processo é o mesmo: cadastre o produto, envie o PDF, defina R$37, ative parcelamento com juros para o comprador e copie o link de pagamento. Os nomes dos menus mudam um pouco entre as plataformas, e as taxas também: confira as taxas atuais no site de cada uma antes de escolher.
 
-## 2. Cole o link do checkout na página
+## 2. Link do checkout
 
-Abra `site/index.html`, procure perto do final:
+Já está na página: `https://pay.kiwify.com.br/teJXTD7`. Se um dia mudar, troque o valor de `var CHECKOUT_URL` perto do final de `site/index.html`.
 
-```js
-var CHECKOUT_URL = "";
-```
-
-e cole o link entre as aspas:
-
-```js
-var CHECKOUT_URL = "https://pay.kiwify.com.br/SEU-LINK";
-```
-
-Todos os botões da página passam a levar para o checkout. Os parâmetros UTM do anúncio (`?utm_source=...`) são repassados automaticamente para o checkout, para você saber de onde veio cada venda.
+Todos os botões da página levam para esse checkout. Os parâmetros UTM do anúncio (`?utm_source=...`) são repassados automaticamente para o checkout, para você saber de onde veio cada venda.
 
 ## 3. Rodapé e foto da paciente
 
